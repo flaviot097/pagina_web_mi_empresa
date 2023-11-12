@@ -46,7 +46,7 @@ function cambioDeTema() {
   nav5.classList.toggle("dark-nav");
   logo.classList.toggle("logo-oscuro");
   //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
-  targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+  //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
 
   if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
     navServicios.classList.toggle("dark-barra");
@@ -64,6 +64,17 @@ function cambioDeTema() {
   } else {
     barranav.classList.toggle("dark-barra");
     tipografiaGrande.classList.toggle("dark-nav");
+  }
+
+  switch ((ruta = window.location.toString())) {
+    case ruta === "http://http://127.0.0.1:5500/contacto.html": {
+      const barraContactos = document.querySelector("barra-contactos");
+      barraContactos.classList.toggle("contacto-dark");
+      break;
+    }
+
+    default:
+      break;
   }
 }
 
