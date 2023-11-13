@@ -806,3 +806,97 @@ i#logo-mi-empresa {
 .contacto-dark {
   background-color: #0c0c0d;
 }
+
+#section-login {
+  padding: 0%;
+}
+
+#foto-login {
+  margin-top: 30%;
+  z-index: -1;
+  position: absolute;
+}
+
+#card-login {
+  position: relative;
+  margin-top: 25%;
+}
+
+#input-login-usuario {
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+#input-login-contrasenia,
+#input-login-email {
+  width: 90%;
+  margin-bottom: 10px;
+}
+.card-login {
+  margin-top: 50%;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border: solid rgba(70, 65, 65, 0.527) 0.2px;
+  border-radius: 10px;
+  display: block;
+}
+
+#btn-login-iniciar-sesion,
+#btn-login-crear-usuario {
+  margin-left: 60px;
+}
+
+.card-login-create {
+  display: none;
+  margin-top: 50%;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border: solid rgba(70, 65, 65, 0.527) 0.2px;
+  border-radius: 10px;
+}
+
+#tipo-de-usuario {
+  font-size: 14px;
+  width: 90%;
+  border-color: transparent;
+}
+
+#footer-login {
+  margin-top: 28%;
+}
+
+#btn-crear-usuario {
+  border-radius: 15px;
+  width: 45%;
+  padding-left: 5px;
+  height: 22px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#btn-crear-usuario:hover {
+  color: rgb(206, 149, 44);
+}
+
+.card-login-create-mostrar {
+  display: block;
+  margin-top: 50%;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border: solid rgba(70, 65, 65, 0.527) 0.2px;
+  border-radius: 10px;
+}
+
+.card-login-ocultar {
+  margin-top: 50%;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border: solid rgba(70, 65, 65, 0.527) 0.2px;
+  border-radius: 10px;
+  display: none;
+}
