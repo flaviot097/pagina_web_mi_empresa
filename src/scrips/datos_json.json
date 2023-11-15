@@ -1,0 +1,26 @@
+[
+  {
+    "nombre_y_apellido": "teodoro ajia",
+    "categoria_servicio": "plomero",
+    "descripcion": "saddasdsadsad sadsadsad",
+    "nombre_servicio": "teordoro el inodoro",
+    "precio": 32323,
+    "fecha": "2023-11-05T03:00:00.000Z"
+  },
+  {
+    "nombre_y_apellido": "juan mecanico",
+    "categoria_servicio": "mecanico",
+    "descripcion": "saddasdsadsad sadsadsad",
+    "nombre_servicio": "mecajuan",
+    "precio": 567,
+    "fecha": "2023-11-05T03:00:00.000Z"
+  },
+  {
+    "nombre_y_apellido": "eketencio ramires",
+    "categoria_servicio": "plomero",
+    "descripcion": "sagrgrgrgrg",
+    "nombre_servicio": "ramires serb",
+    "precio": 23467,
+    "fecha": "2023-11-05T03:00:00.000Z"
+  }
+]
