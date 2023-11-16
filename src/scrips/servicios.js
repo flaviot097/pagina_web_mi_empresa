@@ -32,7 +32,7 @@ const servicios = [
     nombre_y_apellido: "eketencio ramires",
     categoria_servicio: "plomero",
     descripcion: "sagrgrgrgrg",
-    nombre_servicio: "ramires serv",
+    nombre_servicio: "racares",
     precio: 23467,
     fecha: "2023-11-05T03:00:00.000Z",
   },
@@ -41,7 +41,7 @@ const servicios = [
     nombre_y_apellido: "eketencio ramires",
     categoria_servicio: "plomero",
     descripcion: "sagrgrgrgrg",
-    nombre_servicio: "ramires serv",
+    nombre_servicio: "sereje",
     precio: 23467,
     fecha: "2023-11-05T03:00:00.000Z",
   },
@@ -50,7 +50,7 @@ const servicios = [
     nombre_y_apellido: "eketencio ramires",
     categoria_servicio: "plomero",
     descripcion: "sagrgrgrgrg",
-    nombre_servicio: "ramires serv",
+    nombre_servicio: "papes",
     precio: 23467,
     fecha: "2023-11-05T03:00:00.000Z",
   },
@@ -59,7 +59,7 @@ const servicios = [
     nombre_y_apellido: "eketencio ramires",
     categoria_servicio: "plomero",
     descripcion: "sagrgrgrgrg",
-    nombre_servicio: "ramires serv",
+    nombre_servicio: "felev",
     precio: 23467,
     fecha: "2023-11-05T03:00:00.000Z",
   },
@@ -68,7 +68,7 @@ const servicios = [
     nombre_y_apellido: "eketencio ramires",
     categoria_servicio: "plomero",
     descripcion: "sagrgrgrgrg",
-    nombre_servicio: "ramires serv",
+    nombre_servicio: "raer",
     precio: 1,
     fecha: "2023-11-05T03:00:00.000Z",
   },
@@ -98,8 +98,15 @@ agregarServicios(servicios);
 const btnTarjetaSev = document.querySelectorAll(".card");
 console.log(btnTarjetaSev);
 
-const agragarCarrito = () => {
-  let arrayCarrito = [];
+const agragarCarrito = (serv) => {
+  serv.forEach((servicio) => {
+    const key = servicio.nombre_servicio;
+    console.log(key);
+    const array = JSON.stringify(servicio);
+    localStorage.setItem(key, array);
+  });
 };
+
+agragarCarrito(servicios);
 
 //exports.module = { servicios };
