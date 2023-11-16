@@ -85,7 +85,7 @@ function agregarServicios(datos) {
         <h5 class="card-title">${dato.nombre_servicio}</h5>
         <p class="card-text">${dato.descripcion}.</p>
         <p class="card-text"><b>$${dato.precio}</b></p>
-        <a href="#" class="btn btn-primary" id="${dato.id}">🛒</a>
+        <a class="btn btn-primary" id="${dato.id}">🛒</a>
         </div>
     </div>`;
     let nuevohtml = (divcarrito.innerHTML += nuevodiv);
@@ -95,18 +95,25 @@ function agregarServicios(datos) {
 
 agregarServicios(servicios);
 
-const btnTarjetaSev = document.querySelectorAll(".card");
+const btnTarjetaSev = document.querySelectorAll("a.btn.btn-primary");
+
 console.log(btnTarjetaSev);
 
 const agragarCarrito = (serv) => {
   serv.forEach((servicio) => {
     const key = servicio.nombre_servicio;
-    console.log(key);
+    //console.log(key);
     const array = JSON.stringify(servicio);
     localStorage.setItem(key, array);
   });
 };
 
 agragarCarrito(servicios);
+
+btnTarjetaSev.forEach((botones) => {
+  botones.addEventListener("click", () => {
+    console.log("anda el click");
+  });
+});
 
 //exports.module = { servicios };
