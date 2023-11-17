@@ -110,22 +110,26 @@ const agragarCarrito = (serv) => {
 
 agragarCarrito(servicios);
 
-btnTarjetaSev.forEach((botones) => {
-  botones.addEventListener("click", (divTarjeta) => {
-    console.log("anda el click");
-    const tarjetaDatos = {
-      nombre_servicio: divTarjeta.target.name,
-      id: divTarjeta.target.id,
-    };
-    //console.log(localStorage.getItem(tarjetaDatos.nombre_servicio));
+function agregarAlLS() {
+  btnTarjetaSev.forEach((botones) => {
+    botones.addEventListener("click", (divTarjeta) => {
+      console.log("anda el click");
+      const tarjetaDatos = {
+        nombre_servicio: divTarjeta.target.name,
+        id: divTarjeta.target.id,
+      };
+      //console.log(localStorage.getItem(tarjetaDatos.nombre_servicio));
 
-    localStorage.setItem(
-      tarjetaDatos.nombre_servicio,
-      JSON.stringify(servicios[tarjetaDatos.id])
-    );
+      localStorage.setItem(
+        tarjetaDatos.nombre_servicio,
+        JSON.stringify(servicios[tarjetaDatos.id])
+      );
 
-    console.log(tarjetaDatos);
+      console.log(tarjetaDatos);
+    });
   });
-});
+}
+
+agregarAlLS();
 
 //exports.module = { servicios };
