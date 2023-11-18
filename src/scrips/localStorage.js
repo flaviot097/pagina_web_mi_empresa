@@ -90,6 +90,9 @@ function llenarcarrito() {
     </div>`;
 
     divCarro.innerHTML += divServicio;
+    const divTotal = document.querySelector(".letras-total");
+    const suma = parseInt(divTotal.textContent) + item.precio;
+    divTotal.innerText = `${suma}`;
 
     //console.log(item);
   }
@@ -103,8 +106,16 @@ btnBorrar.forEach((boton) => {
   boton.addEventListener("click", (eliminarServicio) => {
     const idServ = eliminarServicio.target.id;
     const nombreServ = eliminarServicio.target.name;
+    const divTotal = document.querySelector(".letras-total");
+
+    const restar =
+      parseInt(divTotal.textContent) -
+      JSON.parse(localStorage.getItem(`${nombreServ}`)).precio;
+    divTotal.innerText = `${restar}`;
+
     localStorage.removeItem(nombreServ);
     const borrar = document.querySelector(`div#id${idServ}.card`);
+
     borrar.remove();
   });
 });
