@@ -117,5 +117,25 @@ btnBorrar.forEach((boton) => {
     const borrar = document.querySelector(`div#id${idServ}.card`);
 
     borrar.remove();
+    if (localStorage.length === 0) {
+      {
+        const htmlCarritoVacio = `
+        <div class="div-carrito" id="div-carro">
+              <img
+                src="./img/bolsa-de-compras.png"
+                alt="imagen bolsa de compras"
+                class="bolsa-de-compras"
+              />
+              <div class="contenedor-descubrir-productos">
+                <b>¡Eliminaste todos servicio del carrito! No te quedes sin servivios ,empieza ahora </b><br />
+                Sumá productos a tu carrito
+                <a href="servicios.html" class="descubrir-productos"
+                  >Descubrir servicios</a
+                >
+              </div>
+            </div>`;
+        divCarrrito.innerHTML = htmlCarritoVacio;
+      }
+    }
   });
 });

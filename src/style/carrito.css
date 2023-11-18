@@ -32,3 +32,8 @@
   border: 1px solid;
   cursor: pointer;
 }
+
+.divcarrito-lleno,
+.align-items-center {
+  align-items: normal !important;
+}
