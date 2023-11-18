@@ -119,7 +119,7 @@ function agregarAlLS() {
         id: divTarjeta.target.id,
       };
       //console.log(localStorage.getItem(tarjetaDatos.nombre_servicio));
-
+      window.alert("se añidio al carrito");
       localStorage.setItem(
         tarjetaDatos.nombre_servicio,
         JSON.stringify(servicios[tarjetaDatos.id])

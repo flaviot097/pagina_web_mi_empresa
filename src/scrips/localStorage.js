@@ -75,28 +75,38 @@ const servicios = [
 
 //const datosLS = window.localStorage;
 const divCarro = document.getElementById("div-carro");
-console.log(divCarro);
+//console.log(divCarro);
 
 function llenarcarrito() {
   for (i = 0; i < localStorage.length; i++) {
     let idLlave = localStorage.key(i);
     let item = JSON.parse(localStorage.getItem(`${idLlave}`));
-    const divServicio = `<div class="card" style="width: 18rem">
+    const divServicio = `<div class="card" id="id${item.id}" style="width: 18rem">
         <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
         <h5 class="card-title">${item.nombre_servicio}</h5>
         <p class="card-text">${item.descripcion}.</p>
         <p class="card-text"><b>$${item.precio}</b></p>
-        <a class="btn btn-primary" name="${item.nombre_servicio}" id="${item.id}">X</a>
+        <a class="btn btn-primary card-carrito" name="${item.nombre_servicio}" id="${item.id}">X</a>
         </div>
     </div>`;
 
     divCarro.innerHTML += divServicio;
 
-    console.log(item);
+    //console.log(item);
   }
 }
 
 llenarcarrito();
-//console.log(datosLS["racares"]);
-//console.log(localStorage.key(0));
+
+const btnBorrar = document.querySelectorAll("a.btn.btn-primary.card-carrito");
+
+btnBorrar.forEach((boton) => {
+  boton.addEventListener("click", (eliminarServicio) => {
+    const idServ = eliminarServicio.target.id;
+    const nombreServ = eliminarServicio.target.name;
+    localStorage.removeItem(nombreServ);
+    const borrar = document.querySelector(`div#id${idServ}.card`);
+    borrar.remove();
+  });
+});
