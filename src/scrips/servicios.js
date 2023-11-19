@@ -77,6 +77,8 @@ const servicios = [
 //console.log(divcarrito);
 //divcarrito.innerHTML = "";
 
+//////agregando servicios de manera dinamica ////////////////////////////////////////////////////
+
 function agregarServicios(datos) {
   datos.forEach((dato) => {
     let nuevodiv = `<div class="card" style="width: 18rem">
@@ -95,9 +97,24 @@ function agregarServicios(datos) {
 
 agregarServicios(servicios);
 
+///redireccionar a servicio///////////////////////////////////////////////////////
+const selectarjeta = document.querySelectorAll("div.card");
+function clickTarjetas(tarjetas) {
+  tarjetas.forEach((divT) => {
+    divT.addEventListener("click", (e) => {
+      location.href = "../../servicio.html";
+    });
+  });
+}
+
+clickTarjetas(selectarjeta);
+//console.log(selectarjeta);
+
+//agregar al local storage////////////////////////////////////////////////////////
+
 const btnTarjetaSev = document.querySelectorAll("a.btn.btn-primary");
 
-console.log(btnTarjetaSev);
+//console.log(btnTarjetaSev);
 
 const agragarCarrito = (serv) => {
   serv.forEach((servicio) => {
