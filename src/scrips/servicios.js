@@ -81,13 +81,14 @@ const servicios = [
 
 function agregarServicios(datos) {
   datos.forEach((dato) => {
-    let nuevodiv = `<div class="card" style="width: 18rem">
-        <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
-        <div class="card-body">
-        <h5 class="card-title">${dato.nombre_servicio}</h5>
-        <p class="card-text">${dato.descripcion}.</p>
-        <p class="card-text"><b>$${dato.precio}</b></p>
-        <a class="btn btn-primary" name="${dato.nombre_servicio}" id="${dato.id}">🛒</a>
+    let id = dato.id;
+    let nuevodiv = `<div class="card" style="width: 18rem" id="${id}">
+        <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..."id="${id}" />
+        <div class="card-body" id="${id}">
+        <h5 class="card-title" id="${id}">${dato.nombre_servicio}</h5>
+        <p class="card-text" id="${id}">${dato.descripcion}.</p>
+        <p class="card-text" id="${id}"><b>$${dato.precio}</b></p>
+        <a class="btn btn-primary" name="${dato.nombre_servicio}" id="${id}">🛒</a>
         </div>
     </div>`;
     let nuevohtml = (divcarrito.innerHTML += nuevodiv);
@@ -99,15 +100,23 @@ agregarServicios(servicios);
 
 ///redireccionar a servicio///////////////////////////////////////////////////////
 const selectarjeta = document.querySelectorAll("div.card");
+
+var data;
+
 function clickTarjetas(tarjetas) {
   tarjetas.forEach((divT) => {
     divT.addEventListener("click", (e) => {
+      let da = e.target.id;
+      data = da;
+
+      console.log(data);
       location.href = "../../servicio.html";
     });
   });
 }
 
 clickTarjetas(selectarjeta);
+
 //console.log(selectarjeta);
 
 //agregar al local storage////////////////////////////////////////////////////////
@@ -150,3 +159,5 @@ function agregarAlLS() {
 agregarAlLS();
 
 //exports.module = { servicios };
+
+export default data;
