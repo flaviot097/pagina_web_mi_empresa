@@ -1,6 +1,8 @@
 const tarjeta = document.querySelector("#contenedor_tarjeta_seleccionada");
-import data from "./servicios";
 
+//import { data } from "./servicios";
+
+//console.log(data);
 /// consulto el servicio por id
 
 const div = `<div class="card-servicio">

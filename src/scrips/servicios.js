@@ -101,7 +101,7 @@ agregarServicios(servicios);
 ///redireccionar a servicio///////////////////////////////////////////////////////
 const selectarjeta = document.querySelectorAll("div.card");
 
-var data;
+var data = 2;
 
 function clickTarjetas(tarjetas) {
   tarjetas.forEach((divT) => {
@@ -158,6 +158,4 @@ function agregarAlLS() {
 
 agregarAlLS();
 
-//exports.module = { servicios };
-
-export default data;
+export { data };
