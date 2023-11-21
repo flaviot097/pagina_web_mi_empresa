@@ -965,10 +965,26 @@ i#logo-mi-empresa {
   justify-content: center;
   border: #0c0c0d solid 10px;
   width: 80%;
+  margin-top: 20px;
 }
 
 .card-servicio {
   background-color: #5b5b5b;
   width: 100%;
   height: 100%;
+  color: white;
+}
+.card-servicio p {
+  color: white;
+}
+.btn.btn-primary {
+  margin-top: 50px;
+  width: 55rem;
+  border: transparent;
+}
+
+.btn.btn-primary:hover {
+  background-color: green;
+  border: transparent;
+  box-shadow: 0.5px 0.5px 10px rgb(39, 39, 39);
 }

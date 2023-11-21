@@ -101,16 +101,20 @@ agregarServicios(servicios);
 ///redireccionar a servicio///////////////////////////////////////////////////////
 const selectarjeta = document.querySelectorAll("div.card");
 
-var data = 2;
-
 function clickTarjetas(tarjetas) {
+  async function darValor(valor) {
+    var data = valor;
+    console.log(data);
+    localStorage.setItem("servicio", JSON.stringify(data));
+    location.href = "../../servicio.html";
+  }
   tarjetas.forEach((divT) => {
     divT.addEventListener("click", (e) => {
       let da = e.target.id;
-      data = da;
 
-      console.log(data);
-      location.href = "../../servicio.html";
+      fetch("http://127.0.0.1:5500/src/scrips/datos_json.json")
+        .then((response) => response.json())
+        .then((dato) => darValor(dato[da]));
     });
   });
 }
@@ -157,5 +161,3 @@ function agregarAlLS() {
 }
 
 agregarAlLS();
-
-export { data };
