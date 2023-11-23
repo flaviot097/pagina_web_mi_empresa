@@ -38,7 +38,7 @@ if ($_POST) {
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light" id="barra-contactos">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="uil uil-user" id="logo-mi-empresa">Mi empresa</i>
+            <a class="navbar-brand" href="index.php"><i class="uil uil-user" id="logo-mi-empresa">Mi empresa</i>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -72,7 +72,7 @@ if ($_POST) {
                         </form>
                     </li>
                     <li class="nav-item">
-                        <a href="login.html" class="nav-link"><span data-hover="Iniciar Sesion" id="cambiar5">Iniciar
+                        <a href="login.php" class="nav-link"><span data-hover="Iniciar Sesion" id="cambiar5">Iniciar
                                 Sesion</span></a>
                     </li>
                 </ul>

@@ -2,10 +2,10 @@
 
 session_start();
 
-if (!isset($_SESSION["usuario"])) {
+/*if (!isset($_SESSION["usuario"])) {
     header("location:login.php");
 
-}
+}*/
 
 
 
@@ -31,7 +31,7 @@ if (!isset($_SESSION["usuario"])) {
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="uil uil-user" id="logo-mi-empresa">Mi empresa</i>
+            <a class="navbar-brand" href="index.php"><i class="uil uil-user" id="logo-mi-empresa">Mi empresa</i>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -65,15 +65,18 @@ if (!isset($_SESSION["usuario"])) {
                         </form>
                     </li>
                     <li class="nav-item">
-                        <a href="login.html" class="nav-link"><?php if (isset($_SESSION["usuario"]) == "") { ?>
+                        <a href="login.php" class="nav-link"><?php if (!isset($_SESSION["usuario"])) { ?>
                             <span data-hover="Iniciar Sesion" id="cambiar5">
-
                                 <?php echo "Iniciar Sesion";
-                        }
-                        ?>
-                                ?><span data-hover="Salir" id="cambiar5"><?php
-                                echo $_SESSION["usuario"]
-                                    ?></span></a>
+                        } else {
+                            ?>
+                                <span data-hover="Salir" id="cambiar5"><?php
+                                    echo $_SESSION["usuario"]
+                                        ?>
+                                </span> <?php }
+                        ;
+
+                        ?></a>
                     </li>
                 </ul>
 
