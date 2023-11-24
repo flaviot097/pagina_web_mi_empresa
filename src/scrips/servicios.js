@@ -106,15 +106,15 @@ function clickTarjetas(tarjetas) {
     var data = valor;
     console.log(data);
     localStorage.setItem("servicio", JSON.stringify(data));
-    location.href = "../../servicio.php";
+    location.href = "./../../la_verdadera/servicio.php";
   }
   tarjetas.forEach((divT) => {
     divT.addEventListener("click", (e) => {
       let da = e.target.id;
 
-      //http://127.0.0.1:5500/src/scrips/datos_json.json
-
-      fetch("http://localhost:80/la_verdadera/src/scrips/datos_json.json")
+      //
+      const url = "http://127.0.0.1:5500/src/scrips/datos_json.json";
+      fetch("http://localhost/la_verdadera/src/scrips/datos_json.json")
         .then((response) => response.json())
         .then((dato) => darValor(dato[da]));
     });

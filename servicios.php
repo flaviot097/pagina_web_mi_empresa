@@ -93,6 +93,6 @@ session_start(); ?>
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
-<script type="module" src=".//src/scrips/servicios.js"></script>
+<script src="./src/scrips/servicios.js"></script>
 
 </html>
