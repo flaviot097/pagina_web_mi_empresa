@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if ($_POST) {
@@ -36,57 +35,8 @@ if ($_POST) {
 
 <body class="cuerpo">
     <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light" id="barra-contactos">
-        <div class="container">
-            <a class="navbar-brand" href="index.php"><i class="uil uil-user" id="logo-mi-empresa">Mi empresa</i>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="servicios.html" class="nav-link"><span data-hover="todos los servicios"
-                                id="cambiar">Todos los servicios</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contacto.html" class="nav-link"><span data-hover="Contacto"
-                                id="cambiar2">Contacto</span></a>
-                    </li>
-                    <li class="nav-item" id="foto_carrito">
-                        <a href="carrito.html" class="nav-link"><span data-hover="Carrito" id="cambiar3"><img
-                                    src="./img/carrito3.png" alt="carrito" /></span></a>
-                    </li>
-                    <li class="nav-item" id="busqueda">
-                        <form class="d-flex" role="search" id="search-form">
-                            <input class="form-control me-2" id="imput_search" type="search" placeholder="¿que buscas?"
-                                aria-label="Search" />
-                            <button class="btn btn-outline-success" type="submit" id="btn_search">
-                                buscar
-                            </button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a href="login.php" class="nav-link"><span data-hover="Iniciar Sesion" id="cambiar5">Iniciar
-                                Sesion</span></a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                        <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                            <button class="color" id="boton_para_tema_oscuro"></button>
-                        </div>
-                    </div>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php
+    require_once("./header.php"); ?>
 
     <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="section-login">
         <img src="./img/fondo-login.png" alt="deposito de cajas" id="foto-login" />
