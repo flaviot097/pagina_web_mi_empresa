@@ -630,7 +630,7 @@ strong {
   max-width: 1200px;
   margin-right: 20%;
 
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 80px;
   min-height: 700px;
 }
@@ -721,9 +721,9 @@ i#logo-mi-empresa {
   border-color: #afaeae;
   border-style: solid;
   border-width: 0px 1px 0px 0px;
-  margin-right: 10%;
+  margin-right: 4%;
   text-align: center;
-  margin-left: -36px;
+  margin-left: -190px;
 }
 
 .tarjetas-servicios-nuevos {
@@ -738,6 +738,20 @@ i#logo-mi-empresa {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+#input-filter,
+#input-filter2,
+#input-filter2 {
+  width: 210px;
+  height: 27px;
+  margin-left: 4rem;
+  margin-top: 10px;
+}
+#btn_filtrado-serv {
+  margin-top: 10px;
+  width: 210px;
+  margin-left: 2.6rem;
 }
 
 .input-filter-serv {

@@ -106,13 +106,15 @@ function clickTarjetas(tarjetas) {
     var data = valor;
     console.log(data);
     localStorage.setItem("servicio", JSON.stringify(data));
-    location.href = "../../servicio.html";
+    location.href = "../../servicio.php";
   }
   tarjetas.forEach((divT) => {
     divT.addEventListener("click", (e) => {
       let da = e.target.id;
 
-      fetch("http://127.0.0.1:5500/src/scrips/datos_json.json")
+      //http://127.0.0.1:5500/src/scrips/datos_json.json
+
+      fetch("http://localhost:80/la_verdadera/src/scrips/datos_json.json")
         .then((response) => response.json())
         .then((dato) => darValor(dato[da]));
     });
@@ -148,6 +150,11 @@ function agregarAlLS() {
         nombre_servicio: divTarjeta.target.name,
         id: divTarjeta.target.id,
       };
+      /*localStorage.removeItem("Console/Mode");
+      localStorage.removeItem("favoriteTables");
+      localStorage.removeItem("NavigationWidth");
+      localStorage.removeItem("Console");*/
+
       //console.log(localStorage.getItem(tarjetaDatos.nombre_servicio));
       window.alert("se añidio al carrito");
       localStorage.setItem(

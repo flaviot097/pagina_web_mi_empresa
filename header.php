@@ -15,15 +15,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a href="servicios.html" class="nav-link"><span data-hover="todos los servicios" id="cambiar">Todos
+                    <a href="servicios.php" class="nav-link"><span data-hover="todos los servicios" id="cambiar">Todos
                             los servicios</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="contacto.html" class="nav-link"><span data-hover="Contacto"
+                    <a href="contacto.php" class="nav-link"><span data-hover="Contacto"
                             id="cambiar2">Contacto</span></a>
                 </li>
                 <li class="nav-item" id="foto_carrito">
-                    <a href="carrito.html" class="nav-link"><span data-hover="Carrito" id="cambiar3"><img
+                    <a href="carrito.php" class="nav-link"><span data-hover="Carrito" id="cambiar3"><img
                                 src="./img/carrito3.png" alt="carrito" /></span></a>
                 </li>
                 <li class="nav-item" id="busqueda">
