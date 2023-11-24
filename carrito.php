@@ -1,5 +1,8 @@
 <?php
-session_start(); ?>
+session_start();
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +26,9 @@ session_start(); ?>
     <!-- MENU -->
     <?php
     require_once("./header.php"); ?>
+    <script>
+    localStorage.removeItem("servicio")
+    </script>
 
     <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="section-carrito">
         <div class="div-carrito" id="div-carro">

@@ -1010,3 +1010,25 @@ i#logo-mi-empresa {
   margin-left: 3.5%;
   margin-top: 30px;
 }
+
+a#btn-interfaz.btn.mr-lg-2.custom-btn {
+  margin-top: 7px;
+  margin-bottom: 5px;
+  width: 92%;
+}
+
+div#inetrfaz-menu.ineterfaz-menu {
+  border-right: solid 2px #cacaca;
+  margin-right: 10px;
+}
+
+div#div-menu-interfaz.custom-btn-group {
+  margin-left: -31%;
+}
+
+#contenedor_tarjetas_interfaz {
+  margin-right: 30%;
+}
+#card-menu {
+  min-height: 100%;
+}

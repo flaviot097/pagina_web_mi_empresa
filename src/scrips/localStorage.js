@@ -90,16 +90,14 @@ function llenarcarrito() {
     </div>`;
 
     divCarro.innerHTML += divServicio;
+
     const divTotal = document.querySelector(".letras-total");
     const suma = parseInt(divTotal.textContent) + item.precio;
     divTotal.innerText = `${suma}`;
-
-    //console.log(item);
   }
+  //console.log(item);
 }
-
 llenarcarrito();
-
 const btnBorrar = document.querySelectorAll("a.btn.btn-primary.card-carrito");
 
 btnBorrar.forEach((boton) => {
@@ -110,14 +108,18 @@ btnBorrar.forEach((boton) => {
 
     const restar =
       parseInt(divTotal.textContent) -
-      JSON.parse(localStorage.getItem(`${nombreServ}`)).precio;
+      JSON.parse(localStorage.getItem(`${nombreServ}`).precio);
+
     divTotal.innerText = `${restar}`;
 
     localStorage.removeItem(nombreServ);
     const borrar = document.querySelector(`div#id${idServ}.card`);
 
     borrar.remove();
-    if (localStorage.length === 0) {
+    if (
+      localStorage.length === 0 ||
+      localStorage.getItem("servicio") !== localStorage.getItem("servicio")
+    ) {
       {
         const htmlCarritoVacio = `
         <div class="div-carrito" id="div-carro">
