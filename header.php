@@ -48,7 +48,15 @@
                     ;
 
                     ?></a>
+                            <?php if (isset($_SESSION["usuario"])) { ?>
                 </li>
+                <li class="nav-item">
+                    <a href="usuario-pag.php" class="nav-link"><span data-hover="<?php echo $_SESSION["usuario"] ?>"
+                            id="cambiar5">menu
+                        </span>
+                    </a>
+                </li><?php
+                            } ?>
             </ul>
 
             <ul class="navbar-nav ml-lg-auto">
