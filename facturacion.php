@@ -29,7 +29,9 @@ if (isset($_SESSION["usuario"])) { ?>
         <?php require_once("./esqueleto-menu.php");
             ?>
         <div id="contenedor_tarjetas_interfaz">
-            <div class="card" id="card-menu" style="width: 50rem">
+            <div id="card-menu" style="width: 50rem">
+                <h2>Mi Empresa</h2>
+
 
             </div>
         </div>

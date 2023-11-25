@@ -33,18 +33,19 @@ if (isset($_SESSION["usuario"])) { ?>
                         class="uil uil-file-alt"></i>Servicios</a>
                 <a href="menu-compras.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Compras</a>
-                <a href="usuario-pag.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
-                        class="uil uil-file-alt"></i>Estadisticas</a>
                 <a href="estadisticas.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
+                        class="uil uil-file-alt"></i>Estadisticas</a>
+                <a href="datos-usuario.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Datos de
                     usuario</a>
                 <a href="facturacion.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Facturacion</a>
             </div>
         </div>
-        <div id="contenedor_tarjetas_interfaz">
-            <div class="card" id="card-menu" style="width: 50rem">
-
+        <div id="contenedor_tarjetas_interfaz" class="tarjeta-estadisticas">
+            <div id="cartas-estadisticas" style="width: 50rem">
+                <h4 id="contenedor-texto-estadistica" style="text-align: center;">Estadisticas de servicios prestados
+                </h4>
             </div>
         </div>
     </section>
@@ -105,4 +106,9 @@ if (isset($_SESSION["usuario"])) { ?>
 
 <?php
 }
-; ?>
+; ?>weight: 300;
+line-height: 1.5;
+color: #5b5b5b;
+}
+
+/* Headings */

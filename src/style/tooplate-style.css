@@ -1033,3 +1033,21 @@ div#div-menu-interfaz.custom-btn-group {
   min-height: 100%;
   border: transparent;
 }
+.contenedor-texto-datos {
+  justify-content: center;
+}
+
+.tarjeta-estadisticas {
+  background-color: #cecdcd;
+  border-radius: 7px;
+  padding-top: 10px;
+}
+
+#datos-usuario-eliminar {
+  border-top: #d4d4d4 solid 1px;
+}
+
+#texto-dato-usuario {
+  margin-top: 10px;
+  text-align: center;
+}

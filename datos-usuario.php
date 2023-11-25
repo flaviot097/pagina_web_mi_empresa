@@ -29,7 +29,57 @@ if (isset($_SESSION["usuario"])) { ?>
         <?php require_once("./esqueleto-menu.php");
             ?>
         <div id="contenedor_tarjetas_interfaz">
-            <div class="card" id="card-menu" style="width: 50rem">
+            <div id="card-menu" style="width: 50rem">
+                <form>
+                    <h5 id="texto-dato-usuario">Actualizar usuario</h5>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="<?php echo $_SESSION["usuario"]
+                                    ?>" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña Actual</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña Nueva</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Reingrese Contraseña Nueva</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Acepto termino y condiciones</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">actualizar</button>
+                </form>
+
+                <form style="margin-top: 20px" id="datos-usuario-eliminar">
+                    <h5 id="texto-dato-usuario">Eliminar usuario</h5>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="<?php echo $_SESSION["usuario"]
+                                    ?>" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Ingrese Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Reingrese Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Acepto termino y condiciones</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Eliminar Cuenta</button>
+                </form>
 
             </div>
         </div>

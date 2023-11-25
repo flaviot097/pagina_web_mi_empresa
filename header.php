@@ -51,7 +51,7 @@
                             <?php if (isset($_SESSION["usuario"])) { ?>
                 </li>
                 <li class="nav-item">
-                    <a href="usuario-pag.php" class="nav-link"><span data-hover="<?php echo $_SESSION["usuario"] ?>"
+                    <a href="datos-servicios.php" class="nav-link"><span data-hover="<?php echo $_SESSION["usuario"] ?>"
                             id="cambiar5">menu
                         </span>
                     </a>
