@@ -29,10 +29,48 @@ if (isset($_SESSION["usuario"])) { ?>
         <?php require_once("./esqueleto-menu.php");
             ?>
         <div id="contenedor_tarjetas_interfaz">
-            <div class="card" id="card-menu" style="width: 50rem">
+            <div id="card-menu" style="width: 50rem">
+                <div class="card mb-3" style="width: 90%;">
+                    <div class="card-body">
+                        <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 50%;">
+                        <h5 class="card-title">nombre de servicio </h5>
+                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
+                        <a href="#" class="btn btn-primary">modificar servicio</a>
+                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 90%;">
+                    <div class="card-body">
+                        <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 15.5rem;">
+                        <h5 class="card-title">nombre de servicio </h5>
+                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
+                        <a href="#" class="btn btn-primary">modificar servicio</a>
+                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 90%;">
+                    <div class="card-body">
+                        <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 15.5rem;">
+                        <h5 class="card-title">nombre de servicio </h5>
+                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
+                        <a href="#" class="btn btn-primary">modificar servicio</a>
+                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 90%;">
+                    <div class="card-body">
+                        <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 15.5rem;">
+                        <h5 class="card-title">nombre de servicio </h5>
+                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
+                        <a href="#" class="btn btn-primary">modificar servicio</a>
+                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
+                    </div>
+                </div>
 
             </div>
         </div>
+
+
     </section>
 
     <!-- CONTACTO -->

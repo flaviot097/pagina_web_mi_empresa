@@ -1031,4 +1031,5 @@ div#div-menu-interfaz.custom-btn-group {
 }
 #card-menu {
   min-height: 100%;
+  border: transparent;
 }

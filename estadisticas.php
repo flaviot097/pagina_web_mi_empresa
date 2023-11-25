@@ -35,7 +35,7 @@ if (isset($_SESSION["usuario"])) { ?>
                         class="uil uil-file-alt"></i>Compras</a>
                 <a href="usuario-pag.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Estadisticas</a>
-                <a href="datos-usuario.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
+                <a href="estadisticas.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Datos de
                     usuario</a>
                 <a href="facturacion.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
@@ -44,13 +44,7 @@ if (isset($_SESSION["usuario"])) { ?>
         </div>
         <div id="contenedor_tarjetas_interfaz">
             <div class="card" id="card-menu" style="width: 50rem">
-                <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">dato nombre servicio</h5>
-                    <p class="card-text">dato descripcion.</p>
-                    <p class="card-text"><b>dato precio</b></p>
-                    <a class="btn btn-primary">🛒</a>
-                </div>
+
             </div>
         </div>
     </section>
