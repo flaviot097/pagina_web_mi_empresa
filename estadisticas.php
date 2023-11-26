@@ -46,6 +46,12 @@ if (isset($_SESSION["usuario"])) { ?>
             <div id="cartas-estadisticas" style="width: 50rem">
                 <h4 id="contenedor-texto-estadistica" style="text-align: center;">Estadisticas de servicios prestados
                 </h4>
+                <div class="grafico-ventas-por-mes">
+                    <canvas id="migrafica" width="300" height="100"></canvas>
+                </div>
+                <div class="monto-recaudado">
+                    <canvas id="recaudacion" width="300" height="100"></canvas>
+                </div>
             </div>
         </div>
     </section>
@@ -99,16 +105,12 @@ if (isset($_SESSION["usuario"])) { ?>
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
-
+<script type="module" src="./src/scrips/graficas-estadisticas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </html>
 
 
 <?php
 }
-; ?>weight: 300;
-line-height: 1.5;
-color: #5b5b5b;
-}
-
-/* Headings */
+; ?>

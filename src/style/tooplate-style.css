@@ -1051,3 +1051,19 @@ div#div-menu-interfaz.custom-btn-group {
   margin-top: 10px;
   text-align: center;
 }
+
+#migrafica {
+  background-color: #333333;
+  border-radius: 5px;
+}
+
+.grafico-ventas-por-mes,
+.monto-recaudado {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 25px;
+}
+#recaudacion {
+  background-color: #333333;
+  border-radius: 5px;
+}
