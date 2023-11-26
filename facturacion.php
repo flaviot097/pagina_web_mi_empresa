@@ -30,7 +30,7 @@ if (isset($_SESSION["usuario"])) { ?>
             ?>
         <div id="contenedor_tarjetas_interfaz">
             <div id="card-menu" style="width: 50rem">
-                <h2>Mi Empresa</h2>
+                <h3>Mi Empresa</h3>
 
 
             </div>
