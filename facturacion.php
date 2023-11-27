@@ -15,6 +15,7 @@ if (isset($_SESSION["usuario"])) { ?>
 
     <link rel="stylesheet" href="./src/style/bootstrap.min.css" />
 
+    <link rel="stylesheet" href="./src/style/usuario.css">
 
     <link rel="stylesheet" href=".//src/style/tooplate-style.css" />
 </head>
@@ -31,116 +32,136 @@ if (isset($_SESSION["usuario"])) { ?>
         <div id="contenedor_tarjetas_interfaz">
             <div id="card-menu" style="width: 50rem">
                 <h3>Mi Empresa</h3>
-                <form>
+                <form method="post" action="./factura-pdf.php" id="formulario-factura">
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Introduzca logo</label>
-                        <input class="form-control" type="file" id="logo-empresa">
+                        <input class="form-control" type="file" id="logo-empresa" name="logo">
                     </div>
                     <div class="mb-3">
                         <label for="categoria-afip" class="form-label">Categoria Afip</label>
-                        <input type="text" class="form-control" id="subtotal" placeholder="ejemplo: C">
+                        <input type="text" class="form-control" id="subtotal" placeholder="ejemplo: C"
+                            name="categoria-afip">
                     </div>
                     <div class="mb-3">
                         <label for="razon-social" class="form-label">Razon Social</label>
-                        <input type="text" class="form-control" id="razon-social" placeholder="ejemplo: mi empresa.sa">
+                        <input type="text" class="form-control" id="razon-social" placeholder="ejemplo: mi empresa.sa"
+                            name="razon-social">
                     </div>
                     <div class="mb-3">
                         <label for="consicion-iva" class="form-label">Condicion Iva</label>
                         <input type="text" class="form-control" id="consicion-iva"
-                            placeholder="ejemplo: responsable inscripto">
+                            placeholder="ejemplo: responsable inscripto" name="condiciones-iva">
                     </div>
                     <div class="mb-3">
                         <label for="domicilio" class="form-label">Domicilio</label>
                         <input type="text" class="form-control" id="domicilio-empresa"
-                            placeholder="ejemplo: av.Roca 2342">
+                            placeholder="ejemplo: av.Roca 2342" name="domicilio">
                     </div>
                     <div class="mb-3">
                         <label for="fecha-de-emision" class="form-label">Fecha de Emision</label>
                         <input type="text" class="form-control" id="fecha-de-emision"
-                            placeholder="ejemplo: responsable inscripto">
+                            placeholder="ejemplo: responsable inscripto" name="fecha-de-emision">
                     </div>
                     <div class="mb-3">
                         <label for="Numero-de-venta" class="form-label">Numero de venta</label>
                         <input type="text" class="form-control" id="numero-de-venta"
-                            placeholder="ejemplo: 0024-000002120">
+                            placeholder="ejemplo: 0024-000002120" name="numero-de-venta">
                     </div>
                     <div class="mb-3">
                         <label for="cuit" class="form-label">C.U.I.T</label>
-                        <input type="text" class="form-control" id="cuit" placeholder="23-3232332-9">
+                        <input type="text" class="form-control" id="cuit" placeholder="23-3232332-9" name="cuit">
                     </div>
                     <div class="mb-3">
-                        <label for="inscripto-ingreso-bruto" class="form-label">Insc. Ingresos Brutos</label>
-                        <input type="text" class="form-control" id="inscripto-ingreso-bruto" placeholder="23-3232332-9">
+                        <label for="inscripto-ingreso-bruto" class="form-label">Insc. Ingresos
+                            Brutos</label>
+                        <input type="text" class="form-control" id="inscripto-ingreso-bruto" placeholder="23-3232332-9"
+                            name="inscripto-ingreso-bruto">
                     </div>
                     <div class="mb-3">
-                        <label for="inicio-de-actividades" class="form-label">Inicio de Actividades</label>
-                        <input type="date" class="form-control" id="inicio-de-actividades" placeholder="09/12/2018">
+                        <label for="inicio-de-actividades" class="form-label">Inicio de
+                            Actividades</label>
+                        <input type="date" class="form-control" id="inicio-de-actividades" placeholder="09/12/2018"
+                            name="inicio-de-actividades">
                     </div>
                     <div class="mb-3">
-                        <label for="fecha-de-vencimiento-de-pago" class="form-label">Fecha de Vencimiento de
+                        <label for="fecha-de-vencimiento-de-pago" class="form-label">Fecha de
+                            Vencimiento de
                             Pago</label>
                         <input type="date" class="form-control" id="fecha-de-vencimiento-de-pago"
-                            placeholder="09/12/2018">
+                            placeholder="09/12/2018" name="fecha-de-vencimiento-de-pago">
                     </div>
                     <div class="mb-3">
                         <label for="cbu-emisor" class="form-label">CBU</label>
-                        <input type="number" class="form-control" id="cbu" placeholder="343049304993049095664">
+                        <input type="number" class="form-control" id="cbu" placeholder="343049304993049095664"
+                            name="cbu-emisor">
                     </div>
                     <div class="mb-3">
                         <label for="nombre-de-cliente" class="form-label">Cliente</label>
-                        <input type="text" class="form-control" id="nombre-de-cliente" placeholder="ejemplo:juan perez">
+                        <input type="text" class="form-control" id="nombre-de-cliente" placeholder="ejemplo:juan perez"
+                            name="nombre-de-cliente">
                     </div>
                     <div class="mb-3">
                         <label for="domicilio-cliente" class="form-label">Domicilio Cliente</label>
                         <input type="text" class="form-control" id="domicilio-cliente"
-                            placeholder="ejemplo: av.Roca 2342">
+                            placeholder="ejemplo: av.Roca 2342" name="domicilio-cliente">
                     </div>
                     <div class="mb-3">
-                        <label for="condicion-de-venta" class="form-label">Condicion de Venta</label>
+                        <label for="condicion-de-venta" class="form-label">Condicion de
+                            Venta</label>
                         <input type="text" class="form-control" id="condicion-de-venta"
-                            placeholder="ejemplo: a cuenta corriente">
+                            placeholder="ejemplo: a cuenta corriente" name="condicion-de-venta">
                     </div>
                     <div class="mb-3">
                         <label for="cuit" class="form-label">C.U.I.T</label>
-                        <input type="text" class="form-control" id="cuit" placeholder="ejemplo: 30-3232323-9">
+                        <input type="text" class="form-control" id="cuit" placeholder="ejemplo: 30-3232323-9"
+                            name="cuit-cliente">
                     </div>
                     <div class="mb-3">
-                        <label for="condicion-de-iva-cliente" class="form-label">Condicion IVA Cliente</label>
+                        <label for="condicion-de-iva-cliente" class="form-label">Condicion IVA
+                            Cliente</label>
                         <input type="text" class="form-control" id="condicion-de-iva-cliente"
-                            placeholder="ejemplo: responsable inscripto">
+                            placeholder="ejemplo: responsable inscripto" name="condicion-de-iva-cliente">
                     </div>
                     <div class="mb-3">
                         <label for="remito" class="form-label">Remito</label>
-                        <input type="text" class="form-control" id="remito">
+                        <input type="text" class="form-control" id="remito" name="remito">
                     </div>
                     <div class="mb-3">
                         <label for="codigo" class="form-label">Codigo de Servicio</label>
                         <input type="number" class="form-control" id="codigo-de-servicio"
-                            placeholder="ejemplo: 43546547234">
+                            placeholder="ejemplo: 43546547234" name="codigo">
                     </div>
                     <div class="mb-3">
-                        <label for="nombre-de-servicio" class="form-label">Nombre de Servicio Prestado</label>
-                        <input type="text" class="form-control" id="nombre-de-servicio" placeholder="ejemplo: plomeria">
+                        <label for="nombre-de-servicio" class="form-label">Nombre de Servicio
+                            Prestado</label>
+                        <input type="text" class="form-control" id="nombre-de-servicio" placeholder="ejemplo: plomeria"
+                            name="nombre-de-servicio">
                     </div>
                     <div class="mb-3">
-                        <label for="cantidad-servicios" class="form-label">Cantidad de Servicios</label>
-                        <input type="number" class="form-control" id="cantidad-servicios" placeholder="ejemplo: 13">
+                        <label for="cantidad-servicios" class="form-label">Cantidad de
+                            Servicios</label>
+                        <input type="number" class="form-control" id="cantidad-servicios" placeholder="ejemplo: 13"
+                            name="cantidad-servicios">
                     </div>
                     <div class="mb-3">
                         <label for="unidad-de-medida" class="form-label">Unidad de Medida</label>
-                        <input type="text" class="form-control" id="unidad-de-medida" placeholder="ejemplo: unidades">
+                        <input type="text" class="form-control" id="unidad-de-medida" placeholder="ejemplo: unidades"
+                            name="unidad-de-medida">
                     </div>
                     <div class="mb-3">
                         <label for="precio-unitario" class="form-label">Precio Unitario</label>
-                        <input type="number" class="form-control" id="presio-unitario" placeholder="ejemplo: 100.00">
+                        <input type="number" class="form-control" id="presio-unitario" placeholder="ejemplo: 100.00"
+                            name="precio-unitario">
                     </div>
                     <div class="mb-3">
                         <label for="bonificacion" class="form-label">Bonificacion</label>
-                        <input type="number" class="form-control" id="bonificacion" placeholder="ejemplo: 0">
+                        <input type="number" class="form-control" id="bonificacion" placeholder="ejemplo: 0"
+                            name="bonificacion">
                     </div>
                     <div class="mb-3">
                         <label for="importe" class="form-label">Importe</label>
-                        <input type="number" class="form-control" id="importe" placeholder="ejemplo: 100.00">
+                        <input type="number" class="form-control" id="importe" placeholder="ejemplo: 100.00"
+                            name="importe">
                     </div>
                     <div class="mb-3">
                         <label for="iva-total" class="form-label">IVA(%)</label>
@@ -148,10 +169,10 @@ if (isset($_SESSION["usuario"])) { ?>
                     </div>
                     <div class="mb-3">
                         <label for="subtotal" class="form-label">Subtotal</label>
-                        <input type="number" class="form-control" id="subtotal" placeholder="ejemplo: 121.00">
+                        <input type="number" class="form-control" id="subtotal" placeholder="ejemplo: 121.00"
+                            name="subtotal">
                     </div>
-                    <a class="btn btn-primary card-carrito" name="" id="crar-factura-pdf" href="factura-pdf.php">Crear
-                        Factura Pdf</a>
+                    <input type="submit" value="Crear Factura Pdf" id="btn-crear-factura">
                 </form>
             </div>
         </div>

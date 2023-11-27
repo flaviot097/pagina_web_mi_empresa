@@ -15,8 +15,9 @@ if (isset($_SESSION["usuario"])) { ?>
 
     <link rel="stylesheet" href="./src/style/bootstrap.min.css" />
 
+    <link rel="stylesheet" href="./src/style/usuario.css" />
 
-    <link rel="stylesheet" href=".//src/style/tooplate-style.css" />
+    <link rel="stylesheet" href="./src/style/tooplate-style.css" />
 </head>
 
 <body class="cuerpo">
@@ -30,7 +31,7 @@ if (isset($_SESSION["usuario"])) { ?>
             ?>
         <div id="contenedor_tarjetas_interfaz">
             <div id="card-menu" style="width: 50rem">
-                <form>
+                <form id="actualizar-usuario">
                     <h5 id="texto-dato-usuario">Actualizar usuario</h5>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Usuario</label>

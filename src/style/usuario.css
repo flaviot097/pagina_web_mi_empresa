@@ -1,0 +1,19 @@
+#actualizar-usuario,
+#datos-usuario-eliminar {
+  color: rgb(107, 107, 107);
+}
+#formulario-factura {
+  color: rgb(107, 107, 107);
+}
+
+#btn-crear-factura {
+  background-color: dodgerblue;
+  border-radius: 7px;
+  border-color: transparent;
+  color: white;
+  height: 37px;
+}
+#btn-crear-factura:hover {
+  background-color: rgb(26, 136, 26);
+  box-shadow: 0.5px 0.5px 10px rgb(140, 143, 0);
+}
