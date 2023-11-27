@@ -1,77 +1,10 @@
-const servicios = [
-  {
-    id: "0",
-    nombre_y_apellido: "teodoro ajia",
-    categoria_servicio: "plomero",
-    descripcion: "saddasdsadsad sadsadsad",
-    nombre_servicio: "teordoro el inodoro",
-    precio: 32323,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "1",
-    nombre_y_apellido: "juan mecanico",
-    categoria_servicio: "mecanico",
-    descripcion: "saddasdsadsad sadsadsad",
-    nombre_servicio: "mecajuan",
-    precio: 567,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "2",
-    nombre_y_apellido: "eketencio ramires",
-    categoria_servicio: "plomero",
-    descripcion: "sagrgrgrgrg",
-    nombre_servicio: "ramires serv",
-    precio: 23467,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "3",
-    nombre_y_apellido: "eketencio ramires",
-    categoria_servicio: "plomero",
-    descripcion: "sagrgrgrgrg",
-    nombre_servicio: "racares",
-    precio: 23467,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "4",
-    nombre_y_apellido: "eketencio ramires",
-    categoria_servicio: "plomero",
-    descripcion: "sagrgrgrgrg",
-    nombre_servicio: "sereje",
-    precio: 23467,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "5",
-    nombre_y_apellido: "eketencio ramires",
-    categoria_servicio: "plomero",
-    descripcion: "sagrgrgrgrg",
-    nombre_servicio: "papes",
-    precio: 23467,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "6",
-    nombre_y_apellido: "eketencio ramires",
-    categoria_servicio: "plomero",
-    descripcion: "sagrgrgrgrg",
-    nombre_servicio: "felev",
-    precio: 23467,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-  {
-    id: "7",
-    nombre_y_apellido: "eketencio ramires",
-    categoria_servicio: "plomero",
-    descripcion: "sagrgrgrgrg",
-    nombre_servicio: "raer",
-    precio: 1,
-    fecha: "2023-11-05T03:00:00.000Z",
-  },
-];
+const servicios = [];
+fetch("http://localhost/la_verdadera/src/scrips/datos_json.json")
+  .then((response) => response.json())
+  .then((data) => (servicio = data))
+  .catch(() => {
+    console.log("error");
+  });
 
 //const datosLS = window.localStorage;
 const divCarro = document.getElementById("div-carro");

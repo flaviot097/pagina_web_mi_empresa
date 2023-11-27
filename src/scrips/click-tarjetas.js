@@ -10,7 +10,7 @@ function clickTarjetas(tarjetas) {
       data = da;
 
       console.log(data);
-      location.href = "../../servicio.html";
+      location.href = "../../servicio.php";
     });
   });
 }

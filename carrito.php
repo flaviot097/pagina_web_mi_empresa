@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="./src/style/tooplate-style.css" />
 
     <link rel="stylesheet" href="./src/style/carrito.css" />
+
 </head>
 
 <body class="cuerpo">
@@ -136,7 +137,7 @@ session_start();
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
-<script src="./src/scrips/localStorage.js"></script>
+<script defer src="./src/scrips/localStorage.js"></script>
 <script src="./src/scrips/carrito_estilo.js"></script>
 
 </html>
