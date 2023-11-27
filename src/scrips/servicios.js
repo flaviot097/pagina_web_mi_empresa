@@ -1,14 +1,6 @@
 const divcarrito = document.getElementById("contenedor_tarjetas_inicio");
 
-const servicios = [];
-fetch("http://localhost/la_verdadera/src/scrips/datos_json.json")
-  .then((response) => response.json())
-  .then((data) => (servicio = data))
-  .catch(() => {
-    console.log("error");
-  });
-
-/*const servicios = [
+const servicios = [
   {
     id: "0",
     nombre_y_apellido: "teodoro ajia",
@@ -81,7 +73,7 @@ fetch("http://localhost/la_verdadera/src/scrips/datos_json.json")
     precio: 1,
     fecha: "2023-11-05T03:00:00.000Z",
   },
-];*/
+];
 
 //console.log(divcarrito);
 //divcarrito.innerHTML = "";

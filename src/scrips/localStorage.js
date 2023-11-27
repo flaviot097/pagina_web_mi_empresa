@@ -1,10 +1,77 @@
-const servicios = [];
-fetch("http://localhost/la_verdadera/src/scrips/datos_json.json")
-  .then((response) => response.json())
-  .then((data) => (servicio = data))
-  .catch(() => {
-    console.log("error");
-  });
+const servicios = [
+  {
+    id: "0",
+    nombre_y_apellido: "teodoro ajia",
+    categoria_servicio: "plomero",
+    descripcion: "saddasdsadsad sadsadsad",
+    nombre_servicio: "teordoro el inodoro",
+    precio: 32323,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "1",
+    nombre_y_apellido: "juan mecanico",
+    categoria_servicio: "mecanico",
+    descripcion: "saddasdsadsad sadsadsad",
+    nombre_servicio: "mecajuan",
+    precio: 567,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "2",
+    nombre_y_apellido: "eketencio ramires",
+    categoria_servicio: "plomero",
+    descripcion: "sagrgrgrgrg",
+    nombre_servicio: "ramires serv",
+    precio: 23467,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "3",
+    nombre_y_apellido: "eketencio ramires",
+    categoria_servicio: "plomero",
+    descripcion: "sagrgrgrgrg",
+    nombre_servicio: "racares",
+    precio: 23467,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "4",
+    nombre_y_apellido: "eketencio ramires",
+    categoria_servicio: "plomero",
+    descripcion: "sagrgrgrgrg",
+    nombre_servicio: "sereje",
+    precio: 23467,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "5",
+    nombre_y_apellido: "eketencio ramires",
+    categoria_servicio: "plomero",
+    descripcion: "sagrgrgrgrg",
+    nombre_servicio: "papes",
+    precio: 23467,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "6",
+    nombre_y_apellido: "eketencio ramires",
+    categoria_servicio: "plomero",
+    descripcion: "sagrgrgrgrg",
+    nombre_servicio: "felev",
+    precio: 23467,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+  {
+    id: "7",
+    nombre_y_apellido: "eketencio ramires",
+    categoria_servicio: "plomero",
+    descripcion: "sagrgrgrgrg",
+    nombre_servicio: "raer",
+    precio: 1,
+    fecha: "2023-11-05T03:00:00.000Z",
+  },
+];
 
 //const datosLS = window.localStorage;
 const divCarro = document.getElementById("div-carro");
@@ -36,12 +103,16 @@ const btnBorrar = document.querySelectorAll("a.btn.btn-primary.card-carrito");
 btnBorrar.forEach((boton) => {
   boton.addEventListener("click", (eliminarServicio) => {
     const idServ = eliminarServicio.target.id;
+
     const nombreServ = eliminarServicio.target.name;
-    const divTotal = document.querySelector(".letras-total");
+
+    const divTotal = document.getElementById("letras-total");
+
+    console.log(JSON.parse(localStorage.getItem(`${nombreServ}`)).precio);
 
     const restar =
       parseInt(divTotal.textContent) -
-      JSON.parse(localStorage.getItem(`${nombreServ}`).precio);
+      JSON.parse(localStorage.getItem(`${nombreServ}`)).precio;
 
     divTotal.innerText = `${restar}`;
 

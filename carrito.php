@@ -42,7 +42,7 @@ session_start();
         </div>
         <div class="precio-total-carrito">
             <b>Total:$</b>
-            <b class="letras-total">0</b>
+            <b class="letras-total" id="letras-total">0</b>
         </div>
     </section>
     <section class="section-comprar">
@@ -136,8 +136,9 @@ session_start();
         </div>
     </footer>
 </body>
+
 <script src="./src/scrips/modo_oscuro.js"></script>
-<script defer src="./src/scrips/localStorage.js"></script>
 <script src="./src/scrips/carrito_estilo.js"></script>
+<script type="text/javascript" src="./src/scrips/localStorage.js"></script>
 
 </html>

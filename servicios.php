@@ -1,5 +1,6 @@
 <?php
-session_start(); ?>
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,8 @@ session_start(); ?>
 
 
     <link rel="stylesheet" href=".//src/style/tooplate-style.css" />
+
+
 </head>
 
 <body class="cuerpo">
@@ -93,6 +96,6 @@ session_start(); ?>
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
-<script src="./src/scrips/servicios.js"></script>
+<script type="text/javascript" src="http://localhost/la_verdadera/src/scrips/servicios.js"></script>
 
 </html>
