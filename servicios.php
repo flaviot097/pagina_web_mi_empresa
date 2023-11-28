@@ -18,6 +18,8 @@ session_start();
 
     <link rel="stylesheet" href=".//src/style/tooplate-style.css" />
 
+    <link rel="stylesheet" href="./src/style/servicio.css">
+
 
 </head>
 

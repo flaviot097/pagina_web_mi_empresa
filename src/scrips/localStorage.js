@@ -135,7 +135,7 @@ btnBorrar.forEach((boton) => {
               <div class="contenedor-descubrir-productos">
                 <b>¡Eliminaste todos servicio del carrito! No te quedes sin servivios ,empieza ahora </b><br />
                 Sumá productos a tu carrito
-                <a href="servicios.html" class="descubrir-productos"
+                <a href="./servicios.php" class="descubrir-productos"
                   >Descubrir servicios</a
                 >
               </div>

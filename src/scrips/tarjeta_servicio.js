@@ -12,6 +12,15 @@ const div = `<div class="card-servicio">
 <p class="card-text"><b>Precio: $${datos.precio}</b></p>
 </div>
 </div>
-<a class="btn btn-primary serv" name="" id="">🛒</a>`;
+<a class="btn btn-primary serv" name="${datos.nombre_servicio}" id="${datos.id}">🛒</a> `;
 
 tarjeta.innerHTML += div;
+
+const botonComprar = document.querySelector("a.btn.btn-primary");
+
+console.log(botonComprar);
+botonComprar.addEventListener("click", () => {
+  localStorage.setItem(`${datos.nombre_servicio}`, JSON.stringify(datos));
+});
+
+localStorage.removeItem("servicio");

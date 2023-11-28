@@ -89,7 +89,7 @@ function agregarServicios(datos) {
         <h5 class="card-title" id="${id}">${dato.nombre_servicio}</h5>
         <p class="card-text" id="${id}">${dato.descripcion}.</p>
         <p class="card-text" id="${id}"><b>$${dato.precio}</b></p>
-        <a class="btn btn-primary" name="${dato.nombre_servicio}" id="${id}">🛒</a>
+        <a href="http://localhost/la_verdadera/servicios.php" class="btn btn-primary" name="${dato.nombre_servicio}" id="${id}">🛒</a>
         </div>
     </div>`;
     let nuevohtml = (divcarrito.innerHTML += nuevodiv);
@@ -106,6 +106,7 @@ function clickTarjetas(tarjetas) {
   async function darValor(valor) {
     var data = valor;
     console.log(data);
+
     localStorage.setItem("servicio", JSON.stringify(data));
     location.href = "./../../la_verdadera/servicio.php";
   }
@@ -123,7 +124,6 @@ function clickTarjetas(tarjetas) {
 }
 
 clickTarjetas(selectarjeta);
-
 //console.log(selectarjeta);
 
 //agregar al local storage////////////////////////////////////////////////////////
