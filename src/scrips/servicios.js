@@ -162,7 +162,7 @@ function agregarAlLS() {
         tarjetaDatos.nombre_servicio,
         JSON.stringify(servicios[tarjetaDatos.id])
       );
-
+      window.location.href = "http://localhost/la_verdadera/servicios.php";
       console.log(tarjetaDatos);
     });
   });
