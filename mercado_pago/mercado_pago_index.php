@@ -7,8 +7,8 @@ use MercadoPago\Client\Payment\PaymentClient;
 use MercadoPago\Exceptions\MPApiException;
 use MercadoPago\MercadoPagoConfig;
 
-$acces_token = "";
-
+$acces_token = "TEST-8976941195160076-042717-97cf6c6a8346971cf607925f5c5004c8-104993";
+$otrotoken = "APP_URS-7751344019252626-071513-898c1e8f0fc1d830847e7458aa6b6c75-1161337255";
 MercadoPagoConfig::setAccessToken($acces_token);
 
 $cliente = new PaymentClient();
@@ -51,58 +51,16 @@ $payment_methods = array(
 
 $preference->payment_methods = $payment_methods;
 
-try {
+$preference->payment_methods = $payment_methods;
 
-    // Step 4: Create the request array
-    $request = [
-        "transaction_amount" => 100,
-        "token" => "YOUR_CARD_TOKEN",
-        "description" => "description",
-        "installments" => 1,
-        "payment_method_id" => "visa",
-        "payer" => [
-            "email" => "user@test.com",
-        ]
-    ];
-
-    // Step 5: Make the request
-    $payment = $client->create($request);
-    echo $payment->id;
-
-    // Step 6: Handle exceptions
-} catch (MPApiException $e) {
-    echo "Status code: " . $e->getApiResponse()->getStatusCode() . "\n";
-    echo "Content: " . $e->getApiResponse()->getContent() . "\n";
-} catch (\Exception $e) {
-    echo $e->getMessage();
-}
-
-/*
-try {
+$preference->notification_url = 'https://www.your-site.com/ipn';
+$preference->statement_descriptor = 'MEUNEGOCIO';
+$preference->external_reference = 'Reference_1234';
+$preference->expires = true;
+$preference->expiration_date_from = '2016-02-01T12:00:00.000-04:00';
+$preference->expiration_date_to = '2016-02-28T12:00:00.000-04:00';
 
 
-$request = [
-"transaction_amount" => 100,
-"token" => "YOUR_CARD_TOKEN",
-"description" => "description",
-"installments" => 1,
-"payment_method_id" => "visa",
-"payer" => [
-"email" => "user@test.com",
-]
-];
-
-
-$payment = $client->create($request);
-echo $payment->id;
-
-
-} catch (MPApiException $e) {
-echo "Status code: " . $e->getApiResponse()->getStatusCode() . "\n";
-echo "Content: " . $e->getApiResponse()->getContent() . "\n";
-} catch (\Exception $e) {
-echo $e->getMessage();
-}*/
 
 ?>
 
@@ -116,8 +74,8 @@ echo $e->getMessage();
 </head>
 
 <body>
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <div class="btn-comprar"></div>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script>
     const public_key = "TEST-9947ef24-67a9-41bb-acaa-58e9acc208f7"
     const mp = new MercadoPago(public_key, {
@@ -133,7 +91,8 @@ echo $e->getMessage();
         }
     })
     </script>
-
 </body>
 
-</html>
+<?php
+
+?>

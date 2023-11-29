@@ -98,6 +98,9 @@ session_start();
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
-<script type="text/javascript" src="http://localhost/la_verdadera/src/scrips/servicios.js"></script>
+<script type="text/javascript" src="http://localhost/la_verdadera/src/scrips/servi.js"></script>
+<script>
+localStorage.removeItem("servicio");
+</script>
 
 </html>

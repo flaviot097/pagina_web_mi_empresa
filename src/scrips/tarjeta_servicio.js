@@ -22,5 +22,3 @@ console.log(botonComprar);
 botonComprar.addEventListener("click", () => {
   localStorage.setItem(`${datos.nombre_servicio}`, JSON.stringify(datos));
 });
-
-localStorage.removeItem("servicio");

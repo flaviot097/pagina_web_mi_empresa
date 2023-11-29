@@ -140,5 +140,8 @@ session_start();
 <script src="./src/scrips/modo_oscuro.js"></script>
 <script src="./src/scrips/carrito_estilo.js"></script>
 <script type="text/javascript" src="./src/scrips/localStorage.js"></script>
+<script>
+localStorage.removeItem("servicio");
+</script>
 
 </html>

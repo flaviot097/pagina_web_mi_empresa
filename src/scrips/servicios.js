@@ -83,13 +83,13 @@ const servicios = [
 function agregarServicios(datos) {
   datos.forEach((dato) => {
     let id = dato.id;
-    let nuevodiv = `<div class="card" style="width: 18rem" id="${id}">
+    let nuevodiv = `<div class="card pd" style="width: 18rem" id="${id}">
         <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..."id="${id}" />
         <div class="card-body" id="${id}">
         <h5 class="card-title" id="${id}">${dato.nombre_servicio}</h5>
         <p class="card-text" id="${id}">${dato.descripcion}.</p>
         <p class="card-text" id="${id}"><b>$${dato.precio}</b></p>
-        <a href="http://localhost/la_verdadera/servicios.php" class="btn btn-primary" name="${dato.nombre_servicio}" id="${id}">🛒</a>
+        <a  class="btn btn-primary" name="${dato.nombre_servicio}" id="${id}">🛒</a>
         </div>
     </div>`;
     let nuevohtml = (divcarrito.innerHTML += nuevodiv);
@@ -97,10 +97,11 @@ function agregarServicios(datos) {
   });
 }
 
-agregarServicios(servicios);
+//agregarServicios(servicios);
 
 ///redireccionar a servicio///////////////////////////////////////////////////////
 const selectarjeta = document.querySelectorAll("div.card");
+console.log(selectarjeta);
 
 function clickTarjetas(tarjetas) {
   async function darValor(valor) {
@@ -111,12 +112,13 @@ function clickTarjetas(tarjetas) {
     location.href = "./../../la_verdadera/servicio.php";
   }
   tarjetas.forEach((divT) => {
+    console.log(divT);
     divT.addEventListener("click", (e) => {
       let da = e.target.id;
 
       //
       const url = "http://127.0.0.1:5500/src/scrips/datos_json.json";
-      fetch("http://localhost/la_verdadera/src/scrips/datos_json.json")
+      fetch("http://localhost:4000/inicio")
         .then((response) => response.json())
         .then((dato) => darValor(dato[da]));
     });
@@ -134,6 +136,7 @@ const btnTarjetaSev = document.querySelectorAll("a.btn.btn-primary");
 
 const agragarCarrito = (serv) => {
   serv.forEach((servicio) => {
+    //console.log(servicio);
     const key = servicio.nombre_servicio;
     //console.log(key);
     const array = JSON.stringify(servicio);
@@ -162,10 +165,17 @@ function agregarAlLS() {
         tarjetaDatos.nombre_servicio,
         JSON.stringify(servicios[tarjetaDatos.id])
       );
-      window.location.href = "http://localhost/la_verdadera/servicios.php";
+      //window.location.href = "http://localhost/la_verdadera/servicios.php";
       console.log(tarjetaDatos);
     });
   });
 }
 
 agregarAlLS();
+
+window.onload = function () {
+  fetch("http://localhost:4000/inicio", {})
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((err) => console.log(err));
+};
