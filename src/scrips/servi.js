@@ -5,13 +5,12 @@ fetch("http://localhost:4000/inicio", {})
   .then((json) =>
     json.forEach((dato) => {
       let id = dato.id;
-      let nuevodiv = `<div class="card pd" style="width: 18rem" id="${id}">
+      let nuevodiv = `<div class="card pd" style="width: 18rem" id="${id}" name="${dato.nombre_servicio}" >
             <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..."id="${id}" />
             <div class="card-body" id="${id}">
             <h5 class="card-title" id="${id}">${dato.nombre_servicio}</h5>
-            <p class="card-text" id="${id}">${dato.descripcion}.</p>
+            <p class="card-text" id="${id}">${dato.descripcion}.</p><br>
             <p class="card-text" id="${id}"><b>$${dato.precio}</b></p>
-            <a  class="btn btn-primary" name="${dato.nombre_servicio}" id="${id}">🛒</a>
             </div>
         </div>`;
       let nuevohtml = (divcarrito.innerHTML += nuevodiv);
@@ -46,31 +45,15 @@ async function agregarclick() {
   clickTarjetas(selectarjeta);
 }
 
-function retraso() {
-  setTimeout(() => {
-    const btnTarjetaSev = document.querySelectorAll("a.btn.btn-primary");
+/*const filtro = document.querySelector("#input-filter");
 
-    function agregarAlLS() {
-      btnTarjetaSev.forEach((botones) => {
-        botones.addEventListener("click", (divTarjeta) => {
-          console.log("anda el click");
-          const nombre = JSON.stringify(divTarjeta.target.name);
-          const id_tarj = divTarjeta.target.id;
+filtro.addEventListener("keyup", (palabra) => {
+  //console.log(palabra.key);
+  console.log(filtro.value);
 
-          /*localStorage.removeItem("Console/Mode");
-          localStorage.removeItem("favoriteTables");
-          localStorage.removeItem("NavigationWidth");
-          localStorage.removeItem("Console");*/
+  const documentos = document.querySelectorAll(".card.pd");
 
-          //console.log(localStorage.getItem(tarjetaDatos.nombre_servicio));
-          window.alert("se añidio al carrito");
-          localStorage.setItem(nombre, id_tarj);
-        });
-      });
-    }
-
-    agregarAlLS();
-  }, 1000);
-}
-
-retraso();
+  documentos.forEach((documento) => {
+    console.log(documento.getAttribute("name").includes(filtro.value));
+  });
+});*/

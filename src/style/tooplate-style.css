@@ -747,6 +747,7 @@ i#logo-mi-empresa {
   height: 27px;
   margin-left: 4rem;
   margin-top: 10px;
+  margin-right: 20px !important;
 }
 #btn_filtrado-serv {
   margin-top: 10px;

@@ -30,7 +30,7 @@
                     <form class="d-flex" role="search" id="search-form">
                         <input class="form-control me-2" id="imput_search" type="search" placeholder="¿que buscas?"
                             aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit" id="btn_search">
+                        <button class="btn btn-outline-success" type="button" id="btn_search">
                             buscar
                         </button>
                     </form>

@@ -32,18 +32,15 @@ session_start();
     <section class="section_servicios">
         <div class="" id="filtros-servicios">
             <h4 class="filter" id="filtros-palabra">Filtros</h4>
-            <form class="d-flex-col" method="" action="" role="search" id="filtar-servicios">
+            <form class="d-flex-col" role="search" id="filtar-servicios">
                 <input class="form-control me-2" id="input-filter" type="search" placeholder="Nombre"
                     aria-label="Search" />
-                <input class="form-control me-2" id="input-filter2" type="search" placeholder="Precio"
-                    aria-label="Search" />
-                <input class="form-control me-2" id="input-filter2" type="search" placeholder="Precio"
-                    aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit" id="btn_filtrado-serv">
+                <button class="btn btn-outline-success" type="button" id="btn_filtrado-serv">
                     buscar
                 </button>
             </form>
         </div>
+        <div id="contenedor"></div>
         <div id="contenedor_tarjetas_inicio">
 
         </div>
@@ -99,6 +96,7 @@ session_start();
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
 <script type="text/javascript" src="http://localhost/la_verdadera/src/scrips/servi.js"></script>
+<script src="./src/scrips/aplicar_filtro.js"></script>
 <script>
 localStorage.removeItem("servicio");
 </script>
