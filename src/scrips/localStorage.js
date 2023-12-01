@@ -145,3 +145,4 @@ btnBorrar.forEach((boton) => {
     }
   });
 });
+localStorage.removeItem("servicio");

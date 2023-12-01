@@ -2,16 +2,42 @@
 session_start();
 
 if ($_POST) {
-    if ($_POST["usuario"] == "flavio" && $_POST["contraseña"] == "1234") {
-        echo "biembenido, estas logeado";
-        $_SESSION["usuario"] = $_POST["usuario"];
 
-        header("location:index.php");
+    $ci = curl_init();
 
+    $usuario = $_POST["usuario"];
+
+    $url = "http://localhost:4000/validacion/" . $usuario;
+
+    curl_setopt($ci, CURLOPT_URL, $url);
+
+    curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
+
+    $respuesta = curl_exec($ci);
+
+    if (curl_errno($ci)) {
+        $mensaje_error = curl_error($ci);
     } else {
-        echo "<script> alert('no te crees que me voy a dar cuenta de tu truco, este usuario o contraseña es invalido');</script>";
+
+        $datosUsuario = json_decode($respuesta, true);
+        curl_close($ci);
+
+
+
+        if ($datosUsuario[0]['contrasenia'] == $_POST["contrasenia"]) {
+            echo "biembenido, estas logeado";
+            $_SESSION["usuario"] = $_POST["usuario"];
+
+            header("location:index.php");
+
+        } else {
+            echo "<script> alert('no te crees que me voy a dar cuenta de tu truco, este usuario o contraseña es invalido');</script>";
+        }
+        ;
     }
+    ;
 }
+;
 
 
 
@@ -46,7 +72,7 @@ if ($_POST) {
                     <input class="form-control me-2" id="input-login-usuario" type="search" placeholder="Usuario"
                         aria-label="Search" name="usuario" />
                     <input class="form-control me-2" id="input-login-contrasenia" type="search" placeholder="Contraseña"
-                        aria-label="Search" name="contraseña" />
+                        aria-label="Search" name="contrasenia" />
                     <button class="btn btn-outline-success" type="submit" id="btn-login-iniciar-sesion">
                         Iniciar Sesion
                     </button>

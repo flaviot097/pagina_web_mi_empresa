@@ -38,6 +38,9 @@ session_start();
                 <button class="btn btn-outline-success" type="button" id="btn_filtrado-serv">
                     buscar
                 </button>
+                <button class="btn btn-outline-success" type="button" id="eliminar-filtros">
+                    Eliminar Filtros
+                </button>
             </form>
         </div>
         <div id="contenedor"></div>
