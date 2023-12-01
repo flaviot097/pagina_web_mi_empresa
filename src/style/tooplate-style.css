@@ -864,8 +864,7 @@ i#logo-mi-empresa {
 }
 
 .card-login-create {
-  display: "";
-  margin-top: 40%;
+  margin-top: 10%;
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -1071,4 +1070,11 @@ div#div-menu-interfaz.custom-btn-group {
 
 #cambiar5 {
   color: #747373;
+}
+
+#section-login-crear {
+  margin-top: -170px;
+}
+#footer-crear {
+  margin-top: 21%;
 }

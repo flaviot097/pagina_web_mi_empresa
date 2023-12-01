@@ -2,40 +2,45 @@
 session_start();
 
 if ($_POST) {
+    if ($_POST["usuario"] && $_POST["contraseña"]) {
 
-    $ci = curl_init();
+        $ci = curl_init();
 
-    $usuario = $_POST["usuario"];
+        $usuario = $_POST["usuario"];
 
-    $url = "http://localhost:4000/validacion/" . $usuario;
+        $url = "http://localhost:4000/validacion/" . $usuario;
 
-    curl_setopt($ci, CURLOPT_URL, $url);
+        curl_setopt($ci, CURLOPT_URL, $url);
 
-    curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
 
-    $respuesta = curl_exec($ci);
+        $respuesta = curl_exec($ci);
 
-    if (curl_errno($ci)) {
-        $mensaje_error = curl_error($ci);
-    } else {
-
-        $datosUsuario = json_decode($respuesta, true);
-        curl_close($ci);
-
-
-
-        if ($datosUsuario[0]['contrasenia'] == $_POST["contrasenia"]) {
-            echo "biembenido, estas logeado";
-            $_SESSION["usuario"] = $_POST["usuario"];
-
-            header("location:index.php");
-
+        if (curl_errno($ci)) {
+            $mensaje_error = curl_error($ci);
         } else {
-            echo "<script> alert('no te crees que me voy a dar cuenta de tu truco, este usuario o contraseña es invalido');</script>";
+
+            $datosUsuario = json_decode($respuesta, true);
+            curl_close($ci);
+
+
+
+            if ($datosUsuario[0]['contrasenia'] == $_POST["contrasenia"]) {
+                echo "biembenido, estas logeado";
+                $_SESSION["usuario"] = $_POST["usuario"];
+
+                header("location:index.php");
+
+            } else {
+                echo "<script> alert('no te crees que me voy a dar cuenta de tu truco, este usuario o contraseña es invalido');</script>";
+            }
+            ;
         }
         ;
+    } else {
+        echo "<script> alert('Debe ingresar todos los datos');</script>";
     }
-    ;
+
 }
 ;
 
@@ -76,35 +81,11 @@ if ($_POST) {
                     <button class="btn btn-outline-success" type="submit" id="btn-login-iniciar-sesion">
                         Iniciar Sesion
                     </button>
-                    <div id="btn-crear-usuario">Crear Usuario</div>
-                </form>
-            </div>
-            <div class="card-login-create" id="crear-usuario">
-                <form class="d-flex-col" method="post" action="login.php" role="search" id="session">
-                    <input class="form-control me-2" id="input-login-usuario" type="search" placeholder="Usuario"
-                        name="usuario" aria-label="Search" />
-                    <input class="form-control me-2" id="input-login-contrasenia" type="search" placeholder="Contraseña"
-                        name="contraseña" aria-label="Search" />
-                    <input class="form-control me-2" id="input-login-contrasenia" type="search"
-                        placeholder="Reingrese Contraseña" aria-label="Search" name="contraseña" />
-                    <input class="form-control me-2" id="input-login-email" type="search" placeholder="email"
-                        aria-label="Search" name="mail" />
-                    <p>
-                        <select id="tipo-de-usuario" name="tipo-de-usuario">
-                            <option value="-">---</option>
-                            <option value="proveedor">Proveedor de servicios</option>
-                            <option value="usuario">Usuario</option>
-                        </select>
-                    </p>
-                    <button class="btn btn-outline-success" type="submit" id="btn-login-crear-usuario">
-                        Crear Usuario
-                    </button>
+                    <div id="btn-crear-usuario"><a href="./crear_usuario.php">Crear Usuario</a></div>
                 </form>
             </div>
         </div>
     </section>
-    <?php echo "hola buen dia";
-    ?>
 
     <!-- FOOTER -->
     <footer class="footer py-5" id="footer-login">
