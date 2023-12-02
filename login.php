@@ -1,8 +1,10 @@
 <?php
 session_start();
 
+
 if ($_POST) {
-    if ($_POST["usuario"] && $_POST["contraseña"]) {
+    if ($_POST["usuario"] && $_POST["contrasenia"]) {
+
 
         $ci = curl_init();
 
@@ -28,6 +30,7 @@ if ($_POST) {
             if ($datosUsuario[0]['contrasenia'] == $_POST["contrasenia"]) {
                 echo "biembenido, estas logeado";
                 $_SESSION["usuario"] = $_POST["usuario"];
+
 
                 header("location:index.php");
 
@@ -78,6 +81,8 @@ if ($_POST) {
                         aria-label="Search" name="usuario" />
                     <input class="form-control me-2" id="input-login-contrasenia" type="search" placeholder="Contraseña"
                         aria-label="Search" name="contrasenia" />
+                    <input class="form-control me-2" id="input-login-usuario" type="search" placeholder="DNI"
+                        aria-label="Search" name="dni" />
                     <button class="btn btn-outline-success" type="submit" id="btn-login-iniciar-sesion">
                         Iniciar Sesion
                     </button>

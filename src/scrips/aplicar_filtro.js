@@ -4,6 +4,8 @@ const divContenedor = document.querySelector("#contenedor");
 
 const divAborrar = document.getElementById("contenedor_tarjetas_inicio");
 
+const btnEvento = document.querySelector("#btn_filtrado-serv");
+
 filtro.addEventListener("keyup", (palabra) => {
   //console.log(palabra.key);
   //console.log(filtro.value);
@@ -17,24 +19,22 @@ filtro.addEventListener("keyup", (palabra) => {
 
   console.log(nuevo[`${letras}`]);
 
-  if (nuevo[`${letras}`] !== undefined) {
+  if (nuevo[`${letras}`] !== undefined || null) {
     console.log("busqueda exitosa");
 
     //añedir evento al boton que dispare la funcion eventobtn
 
-    const btnEvento = document.querySelector("#btn_filtrado-serv");
     btnEvento.addEventListener("click", () => {
-      eventobtn(divAborrar, divContenedor);
+      eventobtn();
     });
-
-    function eventobtn(divB, divA) {
-      divB.innerHTML = "";
-      divA.innerHTML = "";
+    function eventobtn() {
+      divAborrar.innerHTML = "";
 
       const ruta = `http://localhost:4000/respuesta/${letras}`;
       fetch(ruta)
         .then((response) => response.json())
-        .then((datos) =>
+        .then((datos) => {
+          console.log(datos);
           datos.forEach((dato) => {
             let nuevoDiv = `<div class="card pd" style="width: 18rem" id="${dato.id}" name="${dato.nombre_servicio}" >
       <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..."id="${dato.id}" />
@@ -45,24 +45,29 @@ filtro.addEventListener("keyup", (palabra) => {
       </div>
       </div>`;
 
-            let divCreados = (divA.innerHTML += nuevoDiv);
+            let divCreados = (divAborrar.innerHTML += nuevoDiv);
             return divCreados;
-          })
-        );
-    }
-  } else {
-    divAborrar.remove();
+          });
+        })
+        .catch((err) => {
+          divAborrar.innerHTML = "";
 
-    if (document.getElementById("card-sin-servicios") == undefined || null) {
-      let sinServicios = `<div style="width: 18rem" id="card-sin-servicios">
-    <h5 class="card-title" id="emiji"> No se encuentra el servicio que solicitaste 🙁</h5><br>
-    <h5 class="card-title" id="emoji"> Quiza tengas que ser mas especifico. Elimina los filtros para volcer a buscar</h5>
-    </div>`;
-      setTimeout(() => {
-        divContenedor.innerHTML += sinServicios;
-      }, 20);
+          if (
+            document.getElementById("card-sin-servicios") == undefined ||
+            null
+          ) {
+            let sinServicios = `<div style="width: 18rem" id="card-sin-servicios">
+          <h5 class="card-title" id="emiji"> No se encuentra el servicio que solicitaste 🙁</h5><br>
+          <h5 class="card-title" id="emoji"> Quiza tengas que ser mas especifico. Elimina los filtros para volcer a buscar</h5>
+          </div>`;
+
+            divContenedor.innerHTML += sinServicios;
+            console.log(err);
+
+            //window.alert("No hay conincidencias en su busqueda");
+          }
+        });
     }
-    //window.alert("No hay conincidencias en su busqueda");
   }
 });
 
@@ -83,7 +88,7 @@ btnBorrarFiltrado.addEventListener("click", () => {
             <p class="card-text" id="${id}"><b>$${dato.precio}</b></p>
             </div>
         </div>`;
-        let nuevohtml = (divContenedor.innerHTML += nuevodiv);
+        let nuevohtml = (divAborrar.innerHTML += nuevodiv);
         return nuevohtml;
       })
     );

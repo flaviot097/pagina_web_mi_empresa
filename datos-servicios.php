@@ -1,6 +1,43 @@
 <?php
 session_start();
+
 if (isset($_SESSION["usuario"])) { ?>
+
+<?php
+
+
+    if ($_POST) {
+
+        $ci = curl_init();
+
+
+        $dni_user = $_POST["dni"];
+
+        $url = "http://localhost:4000/documento/" . $dni_user;
+        curl_setopt($ci, CURLOPT_URL, $url);
+
+        curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
+
+        $respuesta = curl_exec($ci);
+
+        if (curl_errno($ci)) {
+            $mensaje_error = curl_error($ci);
+        } else {
+
+            $datosUsuario = json_decode($respuesta, true);
+            curl_close($ci);
+        }
+        ;
+
+
+
+
+    }
+    ;
+
+
+
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,39 +63,46 @@ if (isset($_SESSION["usuario"])) { ?>
 
 
     <section class="section_servicios">
-        <?php require_once("./esqueleto-menu.php");
-            ?>
+        <?php require_once("./esqueleto-menu.php"); ?>
+
+        <div id="validar_dni">
+            <form class="d-flex-col" method="Post" action="datos-servicios.php" role="search" id="session-validar">
+                <input class="form-control me-2" id="input-login-usuario" type="search" placeholder="DNI"
+                    aria-label="Search" name="dni" />
+                <button class="btn btn-outline-success" type="submit" id="validar-dni">aceptar</button>
+            </form>
+        </div>
+
         <div id="contenedor_tarjetas_interfaz">
-            <div id="card-menu" style="width: 50rem">
+
+            <?php if ($_POST) {
+                    foreach ($datosUsuario as $dato) { ?>
+
+            <div id="card-menu" style="width: 50rem" id="datos-user">
                 <div class="card mb-3" style="width: 90%;">
                     <div class="card-body" style="background-color: #cecdcd;">
                         <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 50%;">
-                        <h5 class="card-title">nombre de servicio </h5>
-                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
-                        <a href="#" class="btn btn-primary">modificar servicio</a>
-                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
-                    </div>
-                </div>
-                <div class="card mb-3" style="width: 90%;">
-                    <div class="card-body" style="background-color: #cecdcd;">
-                        <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 15.5rem;">
-                        <h5 class="card-title">nombre de servicio </h5>
-                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
-                        <a href="#" class="btn btn-primary">modificar servicio</a>
-                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
-                    </div>
-                </div>
-                <div class="card mb-3" style="width: 90%;">
-                    <div class="card-body" style="background-color: #cecdcd;">
-                        <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 15.5rem;">
-                        <h5 class="card-title">nombre de servicio </h5>
-                        <p class="card-text">contenico o texto/descripcion de el servicio</p>
-                        <a href="#" class="btn btn-primary">modificar servicio</a>
-                        <a class="btn btn-primary card-carrito" name="" id="">❌</a>
+                        <h5 class="card-title"><?php echo $dato['nombre_servicio']; ?> </h5>
+                        <p class="card-text"><?php echo $dato['descripcion']; ?></p>
+                        <a class="btn btn-primary card-carrito" name="<?php echo $dato['id']; ?>"
+                            id="<?php echo $dato['id']; ?>" style="width: 120px;">❌
+
+                        </a>
                     </div>
                 </div>
 
+
+
+
+                <?php
+                    }
+                    ;
+                    echo "<script> const borrar = document.getElementById('validar_dni');
+                    borrar.innerHTML = ''; </script>";
+                }
+                ; ?>
             </div>
+        </div>
         </div>
 
 
@@ -113,6 +157,7 @@ if (isset($_SESSION["usuario"])) { ?>
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
+<script src="./src/scrips/borrar-dato.js"></script>
 
 
 </html>

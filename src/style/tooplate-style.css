@@ -1078,3 +1078,7 @@ div#div-menu-interfaz.custom-btn-group {
 #footer-crear {
   margin-top: 21%;
 }
+.btn.btn-outline-success#validar-dni {
+  width: 168px;
+  height: 40px;
+}
