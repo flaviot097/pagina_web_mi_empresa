@@ -1,6 +1,6 @@
 const divcarrito = document.getElementById("contenedor_tarjetas_inicio");
 
-fetch("http://localhost:4000/inicio", {})
+fetch("http://localhost:4000/inicio")
   .then((response) => response.json())
   .then((json) =>
     json.forEach((dato) => {

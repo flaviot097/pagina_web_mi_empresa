@@ -1,9 +1,7 @@
 <?php
 session_start();
-
-
 if ($_POST) {
-    if ($_POST["usuario"] && $_POST["contrasenia"]) {
+    if ($_POST["usuario"] && $_POST["contrasenia"] && $_POST["dni"]) {
 
 
         $ci = curl_init();
@@ -46,9 +44,6 @@ if ($_POST) {
 
 }
 ;
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +60,7 @@ if ($_POST) {
     <link rel="stylesheet" href="./src/style/bootstrap.min.css" />
 
     <link rel="stylesheet" href="./src/style/tooplate-style.css" />
+
 </head>
 
 <body class="cuerpo">
@@ -81,7 +77,7 @@ if ($_POST) {
                         aria-label="Search" name="usuario" />
                     <input class="form-control me-2" id="input-login-contrasenia" type="search" placeholder="Contraseña"
                         aria-label="Search" name="contrasenia" />
-                    <input class="form-control me-2" id="input-login-usuario" type="search" placeholder="DNI"
+                    <input class="form-control me-2 dni" id="input-login-usuario" type="search" placeholder="DNI"
                         aria-label="Search" name="dni" />
                     <button class="btn btn-outline-success" type="submit" id="btn-login-iniciar-sesion">
                         Iniciar Sesion
@@ -111,7 +107,8 @@ if ($_POST) {
     </footer>
 </body>
 
-<script src="./src/scrips/abilitar_crear_usuario.js"></script>
+
 <script src="./src/scrips/modo_oscuro.js"></script>
+
 
 </html>

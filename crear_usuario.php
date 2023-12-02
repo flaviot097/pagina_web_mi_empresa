@@ -85,11 +85,11 @@ if ($_POST) {
                     name="usuario" aria-label="Search" />
                 <input class="form-control me-2" id="input-login-contrasenia" type="search" placeholder="Contraseña"
                     name="contraseña" aria-label="Search" />
-                <input class="form-control me-2" id="input-login-contrasenia" type="search"
+                <input class="form-control me-2 contrasenia" id="input-login-contrasenia" type="search"
                     placeholder="Reingrese Contraseña" aria-label="Search" name="contraseña-reingrese" />
                 <input class="form-control me-2" id="input-login-email" type="search" placeholder="email"
                     aria-label="Search" name="mail" />
-                <input class="form-control me-2" id="input-login-usuario" type="search" placeholder="DNI"
+                <input class="form-control me-2 dni" id="input-login-usuario" type="search" placeholder="DNI"
                     aria-label="Search" name="dni" />
                 <button class="btn btn-outline-success" type="submit" id="btn-login-crear-usuario">
                     Crear Usuario
@@ -119,5 +119,6 @@ if ($_POST) {
 
 
 <script src="./src/scrips/modo_oscuro.js"></script>
+<script src="./src/scrips/prevenir_envio.js"></script>
 
 </html>
