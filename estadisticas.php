@@ -2,6 +2,36 @@
 session_start();
 if (isset($_SESSION["usuario"])) { ?>
 
+
+<?php
+
+    $ci = curl_init();
+
+    $usuario = $_SESSION["usuario"];
+
+    $url = "http://localhost:4000/ventasanual/" . $usuario;
+
+    curl_setopt($ci, CURLOPT_URL, $url);
+    curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
+
+    $respuestaventas = curl_exec($ci);
+
+    if (curl_errno($ci)) {
+        echo "<script> console.log('error en consulta');</script>";
+    }
+    ;
+
+    $ruta = "http://localhost:4000/recaudacion/" . $usuario;
+
+    curl_setopt($ci, CURLOPT_URL, $ruta);
+    curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
+
+    $respuestarecaudacion = curl_exec($ci);
+    if (curl_errno($ci)) {
+        echo "<script> console.log('error en consulta');</script>";
+    }
+    ; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +61,8 @@ if (isset($_SESSION["usuario"])) { ?>
             <div class="custom-btn-group" id="div-menu-interfaz">
                 <a href="datos-servicios.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Servicios</a>
-                <a href="menu-compras.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
-                        class="uil uil-file-alt"></i>Compras</a>
+                <a href="crear-servicio.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
+                        class="uil uil-file-alt"></i>Crear servicio</a>
                 <a href="estadisticas.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
                         class="uil uil-file-alt"></i>Estadisticas</a>
                 <a href="datos-usuario.php" class="btn mr-lg-2 custom-btn" id="btn-interfaz"><i
@@ -107,6 +137,10 @@ if (isset($_SESSION["usuario"])) { ?>
 <script src="./src/scrips/modo_oscuro.js"></script>
 <script type="module" src="./src/scrips/graficas-estadisticas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+ventas = <?php echo $respuestaventas; ?>
+recaudacion = <?php echo $respuestarecaudacion; ?>;
+</script>
 
 </html>
 

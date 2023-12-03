@@ -38,8 +38,6 @@ if ($_POST) {
             ;
         }
         ;
-    } else {
-        echo "<script> alert('Debe ingresar todos los datos');</script>";
     }
 
 }

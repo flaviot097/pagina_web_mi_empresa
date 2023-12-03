@@ -42,12 +42,7 @@ if ($_POST) {
 
             }
             ;
-        } else {
-            echo "<script> alert('la contraseña ingresada campo 'contraseña' debe ser igul que el campo 'reingrese contraseña');</script>";
         }
-        ;
-    } else {
-        echo "<script> alert('debe completar los todos los campos');</script>";
     }
     ;
 }

@@ -80,7 +80,7 @@ if (isset($_SESSION["usuario"])) { ?>
 
             <div id="card-menu" style="width: 50rem" id="datos-user">
                 <div class="card mb-3" style="width: 90%;">
-                    <div class="card-body" style="background-color: #cecdcd;">
+                    <div class="card-body" style="background-color: #cecdcd;" id="<?php echo $dato['id']; ?>">
                         <img src="./img/car-wash-1619823_1280.jpg" alt="" style="width: 50%;">
                         <h5 class="card-title"><?php echo $dato['nombre_servicio']; ?> </h5>
                         <p class="card-text"><?php echo $dato['descripcion']; ?></p>

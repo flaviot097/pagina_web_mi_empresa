@@ -11,8 +11,11 @@ btnborrar.forEach((boton) => {
       headers: {},
     };
 
-    fetch(`http://localhost:4000/inicio/${id}`, metodo).then((res) =>
-      console.log(res.status)
-    );
+    fetch(`http://localhost:4000/inicio/${id}`, metodo).then((res) => {
+      console.log(res.status);
+      const tarjeta = document.getElementById(`${id}`);
+      console.log(tarjeta);
+      tarjeta.innerHTML = "";
+    });
   });
 });
