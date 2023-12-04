@@ -102,6 +102,9 @@ session_start();
 <script src="./src/scrips/aplicar_filtro.js"></script>
 <script>
 localStorage.removeItem("servicio");
+if (localStorage.getItem("articulo")) {
+    localStorage.removeItem("articulo")
+}
 </script>
 
 </html>

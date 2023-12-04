@@ -15,7 +15,7 @@ if (isset($_SESSION["usuario"])) { ?>
                 $user = $_SESSION["usuario"];
 
 
-                $url = "http://localhost:4000/creacion";
+                $url = "http://localhost:4000/usuarioactualizar/" . $user;
                 $contrasenia = $_POST["contraseniaN"];
                 $mail = $_POST["email"];
                 $dni = $_POST["dni"];
@@ -31,7 +31,7 @@ if (isset($_SESSION["usuario"])) { ?>
                 $data_string = json_encode($array);
 
                 $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
 
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -50,10 +50,15 @@ if (isset($_SESSION["usuario"])) { ?>
 
                 $result = curl_exec($ch);
 
-                curl_close($ch);
+                if (curl_errno($ch)) {
+                    echo 'Error:' . curl_error($ch);
+                } else {
+                    echo "<script> alert('se actualizo con exito') </script>";
+                }
+                ;
 
-                echo $result;
-                echo "realizando post";
+
+                curl_close($ch);
 
             } else {
                 echo "<script>alert('Las contraseñas no coinciden');</script>";
@@ -103,23 +108,23 @@ if (isset($_SESSION["usuario"])) { ?>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Contraseña Actual</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="contraseniaA">
+                            <input type="password" class="form-control" id="contraseniaA" name="contraseniaA">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Contraseña Nueva</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="contrasenia">
+                            <input type="password" class="form-control" id="contrasenia" name="contrasenia">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Reingrese Contraseña Nueva</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="contraseniaN">
+                            <input type="password" class="form-control" id="contraseniaN" name="contraseniaN">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">DNI</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="dni">
+                            <input type="text" class="form-control" id="dni" name="dni">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Ingrese Mail</label>
-                            <input type="mail" class="form-control" id="exampleInputPassword1" name="email">
+                            <input type="mail" class="form-control" id="mail" name="email">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="">
@@ -206,9 +211,7 @@ if (isset($_SESSION["usuario"])) { ?>
     </body>
     <script src="./src/scrips/modo_oscuro.js"></script>
     <script src="./src/scrips/consulta.js"></script>
-
-
-
+    <script src="./src/scrips/datos-usuario-val.js"></script>
 
 
     </html>

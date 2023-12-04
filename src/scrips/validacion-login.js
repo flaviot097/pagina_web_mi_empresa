@@ -10,7 +10,7 @@ formulario.addEventListener("submit", (e) => {
   if (dni == "" || usuario == "" || contraseña == "") {
     e.preventDefault();
 
-    const div = `<div class="alert alert-warning d-flex align-items-center" role="alert">
+    const div = `<div class="alert alert-warning d-flex align-items-center" role="alert"  >
     <div>
     ⚠️Debe completar todos los Campos
     </div>

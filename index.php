@@ -209,5 +209,10 @@ session_start();
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
+<script>
+if (localStorage.getItem("articulo")) {
+    localStorage.removeItem("articulo")
+}
+</script>
 
 </html>

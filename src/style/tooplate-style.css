@@ -1086,3 +1086,10 @@ div#div-menu-interfaz.custom-btn-group {
 .comprar-redireccion {
   margin-top: 37px;
 }
+
+#btn-redireccion {
+  display: none;
+}
+#input-invisible {
+  display: none;
+}

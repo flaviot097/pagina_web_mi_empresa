@@ -107,6 +107,7 @@ if ($_POST) {
 
 
 <script src="./src/scrips/modo_oscuro.js"></script>
+<script src="./src/scrips/validar-login.js"></script>
 
 
 </html>

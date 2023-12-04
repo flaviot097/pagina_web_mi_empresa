@@ -28,7 +28,10 @@ session_start();
     <?php
     require_once("./header.php"); ?>
     <script>
-    localStorage.removeItem("servicio")
+        localStorage.removeItem("servicio")
+        if (localStorage.getItem("articulo")) {
+            localStorage.removeItem("articulo")
+        }
     </script>
 
     <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="section-carrito">
@@ -44,7 +47,11 @@ session_start();
             <b>Total:$</b>
             <b class="letras-total" id="letras-total">0</b>
             <div class="comprar-redireccion">
-                <a class="btn custom-btn custom-btn-bg custom-btn-link" href="">Pagar</a>
+                <form action=".././mercado-pago/api.php" method=post name=test id="form-link">
+                    <input name=arv type=hidden>
+                    <input class="btn custom-btn custom-btn-bg custom-btn-link" id="btn-redireccion" type=submit
+                        value="comprar">
+                </form>
             </div>
         </div>
 
@@ -140,10 +147,11 @@ session_start();
         </div>
     </footer>
 </body>
-
+<script src="./src/scrips/datos-compra.js"></script>
 <script src="./src/scrips/modo_oscuro.js"></script>
 <script src="./src/scrips/carrito_estilo.js"></script>
 <script type="text/javascript" src="./src/scrips/localStorage.js"></script>
+
 
 
 </html>
