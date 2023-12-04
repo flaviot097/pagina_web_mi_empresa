@@ -75,6 +75,31 @@ const servicios = [
 
 //const datosLS = window.localStorage;
 const divCarro = document.getElementById("div-carro");
+if (
+  localStorage.getItem("Console/Mode") ||
+  localStorage.getItem("trafficLightTTL") ||
+  localStorage.getItem("trafficLightWhitelist") ||
+  localStorage.getItem("trafficLightBase64") ||
+  localStorage.getItem("Console") ||
+  localStorage.getItem("autoSavedSql_usuarios_o_servicios") ||
+  localStorage.getItem("autoSavedSql_usuarios_o_servicios.ventas") ||
+  localStorage.getItem("showThisQuery") ||
+  localStorage.getItem("trafficLightSendData") ||
+  localStorage.getItem("NavigationWidth")
+) {
+  console.log("es distinto de esto");
+  localStorage.removeItem("Console/Mode");
+  localStorage.removeItem("trafficLightBase64");
+  localStorage.removeItem("trafficLightTTL");
+  localStorage.removeItem("trafficLightWhitelist");
+  localStorage.removeItem("Console");
+  localStorage.removeItem("autoSavedSql_usuarios_o_servicios");
+  localStorage.removeItem("autoSavedSql_usuarios_o_servicios.ventas");
+  localStorage.removeItem("showThisQuery");
+  localStorage.removeItem("trafficLightSendData");
+  localStorage.removeItem("NavigationWidth");
+  localStorage.removeItem("autoSavedSql_usuarios_o_servicios.usuarios");
+}
 //console.log(divCarro);
 
 function llenarcarrito() {

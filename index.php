@@ -180,7 +180,7 @@ session_start();
                                 </div>
 
                                 <div class="ml-lg-auto col-lg-5 col-12">
-                                    <input type="submit" class="form-control submit-btn" value="Send Button" />
+                                    <input type="submit" class="form-control submit-btn" value="Enviar" />
                                 </div>
                             </div>
                         </form>

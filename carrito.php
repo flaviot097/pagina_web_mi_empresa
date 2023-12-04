@@ -43,7 +43,11 @@ session_start();
         <div class="precio-total-carrito">
             <b>Total:$</b>
             <b class="letras-total" id="letras-total">0</b>
+            <div class="comprar-redireccion">
+                <a class="btn custom-btn custom-btn-bg custom-btn-link" href="">Pagar</a>
+            </div>
         </div>
+
     </section>
     <section class="section-comprar">
         <a class="btn-comprar" id="btn-comprar">Comprar</a>
@@ -108,7 +112,7 @@ session_start();
                                 </div>
 
                                 <div class="ml-lg-auto col-lg-5 col-12">
-                                    <input type="submit" class="form-control submit-btn" value="Send Button" />
+                                    <input type="submit" class="form-control submit-btn" value="Enviar" />
                                 </div>
                             </div>
                         </form>

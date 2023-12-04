@@ -4,9 +4,6 @@ if ($_POST) {
     if ($_POST["usuario"] && $_POST["contraseña"] && $_POST["contraseña"] && $_POST["contraseña-reingrese"] && $_POST["mail"]) {
         if ($_POST["contraseña"] === $_POST["contraseña-reingrese"]) {
 
-
-            $ci = curl_init();
-
             $url = "http://localhost:4000/creacion";
 
             $usuario = $_POST["usuario"];
@@ -20,25 +17,34 @@ if ($_POST) {
                 'contrasenia' => $contrasenia,
                 'email' => $mail
             );
+            $data_string = json_encode($array);
 
-            $datosUsuario = http_build_query($array);
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 
-            $coneccion = array(
-                CURLOPT_URL => 'http://localhost:4000/creacion',
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $array,
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt(
+                $ch,
+                CURLOPT_HTTPHEADER,
+                array(
 
-                CURLOPT_RETURNTRANSFER => true
+
+                    'Content-Type: application/json',
+
+
+                    'Content-Length: ' . strlen($data_string)
+                )
             );
 
-            curl_setopt_array($ci, $coneccion);
+            $result = curl_exec($ch);
 
-
-            curl_exec($ci);
-            if (curl_errno($ci)) {
-                echo 'Error:' . curl_error($ci);
+            curl_close($ch);
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
             } else {
                 echo "<script> alert('usuario creado con exito');</script>";
+                header("http://localhost/la_verdadera/login.php");
 
             }
             ;
