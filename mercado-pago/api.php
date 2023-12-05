@@ -15,10 +15,9 @@ $preference->back_urls = array(
 
 $servicios = [];
 $servicio = new MercadoPago\Item();
-$data = json_decode($_POST['arr'], true);
-print_r($data[0]);
 
-$servicio->title = "Lavado de autos , arreglo autos";
+
+$servicio->title = "plomeria";
 $servicio->quantity = 2;
 $servicio->unit_price = 23755;
 
@@ -35,9 +34,11 @@ $preference->save();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../src/style/pasarela.css">
 </head>
 
 <body>
+    <input type="checkbox" class="form-check-input" id="check">
     <div class="btn-comprar"></div>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script>
@@ -56,6 +57,7 @@ $preference->save();
         })
     </script>
 </body>
-
+$data = json_decode($_POST['arr'], true);
+print_r($data[0]);
 
 </html>
