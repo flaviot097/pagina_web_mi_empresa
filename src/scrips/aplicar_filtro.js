@@ -1,6 +1,6 @@
 const filtro = document.querySelector("input#input-filter");
 
-const divContenedor = document.querySelector("#contenedor");
+//const divContenedor = document.querySelector("#contenedor");
 
 const divAborrar = document.getElementById("contenedor_tarjetas_inicio");
 
@@ -29,7 +29,6 @@ filtro.addEventListener("keyup", (palabra) => {
     });
     function eventobtn() {
       divAborrar.innerHTML = "";
-
       const ruta = `http://localhost:4000/respuesta/${letras}`;
       fetch(ruta)
         .then((response) => response.json())
@@ -37,16 +36,15 @@ filtro.addEventListener("keyup", (palabra) => {
           console.log(datos);
           datos.forEach((dato) => {
             let nuevoDiv = `<div class="card pd" style="width: 18rem" id="${dato.id}" name="${dato.nombre_servicio}" >
-      <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..."id="${dato.id}" />
-      <div class="card-body" id="${dato.id}">
-      <h5 class="card-title" id="${dato.id}">${dato.nombre_servicio}</h5>
-      <p class="card-text" id="${dato.id}">${dato.descripcion}.</p><br>
-      <p class="card-text" id="${dato.id}"><b>$${dato.precio}</b></p>
-      </div>
-      </div>`;
+        <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..."id="${dato.id}" />
+        <div class="card-body" id="${dato.id}">
+        <h5 class="card-title" id="${dato.id}">${dato.nombre_servicio}</h5>
+        <p class="card-text" id="${dato.id}">${dato.descripcion}.</p><br>
+        <p class="card-text" id="${dato.id}"><b>$${dato.precio}</b></p>
+        </div>
+        </div>`;
 
-            let divCreados = (divAborrar.innerHTML += nuevoDiv);
-            return divCreados;
+            divAborrar.innerHTML = nuevoDiv;
           });
         })
         .catch((err) => {
@@ -54,14 +52,15 @@ filtro.addEventListener("keyup", (palabra) => {
 
           if (
             document.getElementById("card-sin-servicios") == undefined ||
-            null
+            null ||
+            "undefined"
           ) {
             let sinServicios = `<div style="width: 18rem" id="card-sin-servicios">
           <h5 class="card-title" id="emiji"> No se encuentra el servicio que solicitaste 🙁</h5><br>
           <h5 class="card-title" id="emoji"> Quiza tengas que ser mas especifico. Elimina los filtros para volcer a buscar</h5>
           </div>`;
 
-            divContenedor.innerHTML += sinServicios;
+            divAborrar.innerHTML += sinServicios;
             console.log(err);
 
             //window.alert("No hay conincidencias en su busqueda");
@@ -74,7 +73,7 @@ filtro.addEventListener("keyup", (palabra) => {
 const btnBorrarFiltrado = document.getElementById("eliminar-filtros");
 
 btnBorrarFiltrado.addEventListener("click", () => {
-  divContenedor.innerHTML = "";
+  divAborrar.innerHTML = "";
   fetch("http://localhost:4000/inicio", {})
     .then((response) => response.json())
     .then((json) =>
@@ -88,8 +87,7 @@ btnBorrarFiltrado.addEventListener("click", () => {
             <p class="card-text" id="${id}"><b>$${dato.precio}</b></p>
             </div>
         </div>`;
-        let nuevohtml = (divAborrar.innerHTML += nuevodiv);
-        return nuevohtml;
+        divAborrar.innerHTML += nuevodiv;
       })
     );
 });
