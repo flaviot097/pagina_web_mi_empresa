@@ -43,8 +43,8 @@ session_start();
                 </button>
             </form>
         </div>
-        <div id="contenedor"></div>
-        <div id="contenedor_tarjetas_inicio">
+        <div id="contenedor">
+            <div id="contenedor_tarjetas_inicio"></div>
 
         </div>
     </section>

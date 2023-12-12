@@ -85,7 +85,8 @@ if (
   localStorage.getItem("autoSavedSql_usuarios_o_servicios.ventas") ||
   localStorage.getItem("showThisQuery") ||
   localStorage.getItem("trafficLightSendData") ||
-  localStorage.getItem("NavigationWidth")
+  localStorage.getItem("NavigationWidth") ||
+  localStorage.getItem("favoriteTables")
 ) {
   console.log("es distinto de esto");
   localStorage.removeItem("Console/Mode");
@@ -99,6 +100,7 @@ if (
   localStorage.removeItem("trafficLightSendData");
   localStorage.removeItem("NavigationWidth");
   localStorage.removeItem("autoSavedSql_usuarios_o_servicios.usuarios");
+  localStorage.removeItem("favoriteTables");
 }
 //console.log(divCarro);
 
