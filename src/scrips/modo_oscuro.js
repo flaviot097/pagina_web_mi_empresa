@@ -37,44 +37,55 @@ if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
 }
 
 function cambioDeTema() {
-  botonDarkmode.classList.toggle("color-oscuro");
-  body.classList.toggle("body-ocuro");
-  nav.classList.toggle("dark-nav");
-  nav2.classList.toggle("dark-nav");
-  nav3.classList.toggle("dark-nav");
-  nav4.classList.toggle("boton-modo-oscuro");
-  nav5.classList.toggle("dark-nav");
-  logo.classList.toggle("logo-oscuro");
-  //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
-  //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+  if (!sessionStorage.getItem("modo-oscuro")) {
+    sessionStorage.setItem("modo-oscuro", "dark-mode");
 
-  if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
-    navServicios.classList.toggle("dark-barra");
-    divFiltroServicios.classList.toggle("section_servicios-serv");
-    tarjetasTodoServicios.classList.toggle("tarjetas-servicios-nuevos");
-    formFilter.classList.toggle("filtrado-servicios-form");
-    inputFilter.classList.toggle("filter-input-oscuro");
-    btnFiltradoServ.classList.toggle("btn-filtro-serv");
-    serviciosModOscuro.classList.toggle("section_oscuro_servicios");
-    //formFilter.classList.toggle("filtrado-servicios-form-ocuro");
-    filterServModeDark.classList.toggle("filter-input-oscuro");
-    filtModeDarkInputs.classList.toggle("alineado-form");
-    textofilto.classList.toggle("alinerar-palabra-filtros");
-    btnFiltradoServ.classList.toggle("btn-sev-oscuro-filtrado");
-  } else {
-    barranav.classList.toggle("dark-barra");
-    tipografiaGrande.classList.toggle("dark-nav");
-  }
+    botonDarkmode.classList.toggle("color-oscuro");
 
-  switch ((ruta = window.location.toString())) {
-    case ruta === "http://http://127.0.0.1:5500/contacto.html": {
-      const barraContactos = document.querySelector("barra-contactos");
+    if (
+      window.location.toString() == "http://localhost/la_verdadera/contacto.php"
+    ) {
+      const barraContactos = document.querySelector("body");
+      const todosServ = document.getElementById("cambiar");
+      todosServ.classList.toggle("dark-nav");
       barraContactos.classList.toggle("contacto-dark");
-      break;
+      barranav.classList.toggle("dark-barra");
+      nav2.classList.toggle("dark-nav");
+      nav3.classList.toggle("dark-nav");
+      nav4.classList.toggle("boton-modo-oscuro");
+      nav5.classList.toggle("dark-nav");
+      logo.classList.toggle("logo-oscuro");
     }
 
-    default:
-      break;
+    body.classList.toggle("body-ocuro");
+    nav.classList.toggle("dark-nav");
+    nav2.classList.toggle("dark-nav");
+    nav3.classList.toggle("dark-nav");
+    nav4.classList.toggle("boton-modo-oscuro");
+    nav5.classList.toggle("dark-nav");
+    logo.classList.toggle("logo-oscuro");
+    //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+    //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+
+    if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
+      navServicios.classList.toggle("dark-barra");
+      divFiltroServicios.classList.toggle("section_servicios-serv");
+      tarjetasTodoServicios.classList.toggle("tarjetas-servicios-nuevos");
+      formFilter.classList.toggle("filtrado-servicios-form");
+      inputFilter.classList.toggle("filter-input-oscuro");
+      btnFiltradoServ.classList.toggle("btn-filtro-serv");
+      serviciosModOscuro.classList.toggle("section_oscuro_servicios");
+      //formFilter.classList.toggle("filtrado-servicios-form-ocuro");
+      filterServModeDark.classList.toggle("filter-input-oscuro");
+      filtModeDarkInputs.classList.toggle("alineado-form");
+      textofilto.classList.toggle("alinerar-palabra-filtros");
+      btnFiltradoServ.classList.toggle("btn-sev-oscuro-filtrado");
+    } else {
+      barranav.classList.toggle("dark-barra");
+      tipografiaGrande.classList.toggle("dark-nav");
+    }
+  } else {
+    sessionStorage.removeItem("modo-oscuro");
   }
 }
 
