@@ -37,56 +37,89 @@ if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
 }
 
 function cambioDeTema() {
-  if (!sessionStorage.getItem("modo-oscuro")) {
-    sessionStorage.setItem("modo-oscuro", "dark-mode");
-
-    botonDarkmode.classList.toggle("color-oscuro");
-
-    if (
-      window.location.toString() == "http://localhost/la_verdadera/contacto.php"
-    ) {
-      const barraContactos = document.querySelector("body");
-      const todosServ = document.getElementById("cambiar");
-      todosServ.classList.toggle("dark-nav");
-      barraContactos.classList.toggle("contacto-dark");
-      barranav.classList.toggle("dark-barra");
-      nav2.classList.toggle("dark-nav");
-      nav3.classList.toggle("dark-nav");
-      nav4.classList.toggle("boton-modo-oscuro");
-      nav5.classList.toggle("dark-nav");
-      logo.classList.toggle("logo-oscuro");
-    }
-
-    body.classList.toggle("body-ocuro");
-    nav.classList.toggle("dark-nav");
+  /*if (
+    window.location.toString() == "http://localhost/la_verdadera/contacto.php"
+  ) {
+    const barraContactos = document.querySelector("body");
+    const todosServ = document.getElementById("cambiar");
+    todosServ.classList.toggle("dark-nav");
+    barraContactos.classList.toggle("contacto-dark");
+    barranav.classList.toggle("dark-barra");
     nav2.classList.toggle("dark-nav");
     nav3.classList.toggle("dark-nav");
     nav4.classList.toggle("boton-modo-oscuro");
     nav5.classList.toggle("dark-nav");
     logo.classList.toggle("logo-oscuro");
-    //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
-    //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+  }
 
-    if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
-      navServicios.classList.toggle("dark-barra");
-      divFiltroServicios.classList.toggle("section_servicios-serv");
-      tarjetasTodoServicios.classList.toggle("tarjetas-servicios-nuevos");
-      formFilter.classList.toggle("filtrado-servicios-form");
-      inputFilter.classList.toggle("filter-input-oscuro");
-      btnFiltradoServ.classList.toggle("btn-filtro-serv");
-      serviciosModOscuro.classList.toggle("section_oscuro_servicios");
-      //formFilter.classList.toggle("filtrado-servicios-form-ocuro");
-      filterServModeDark.classList.toggle("filter-input-oscuro");
-      filtModeDarkInputs.classList.toggle("alineado-form");
-      textofilto.classList.toggle("alinerar-palabra-filtros");
-      btnFiltradoServ.classList.toggle("btn-sev-oscuro-filtrado");
-    } else {
-      barranav.classList.toggle("dark-barra");
-      tipografiaGrande.classList.toggle("dark-nav");
-    }
+  body.classList.toggle("body-ocuro");
+  nav.classList.toggle("dark-nav");
+  nav2.classList.toggle("dark-nav");
+  nav3.classList.toggle("dark-nav");
+  nav4.classList.toggle("boton-modo-oscuro");
+  nav5.classList.toggle("dark-nav");
+  logo.classList.toggle("logo-oscuro");
+  //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+  //targetasServicios.classList.toggle("tarjeta-modo-oscuro");
+
+  if (window.location.toString() === "http://127.0.0.1:5500/servicios.html") {
+    navServicios.classList.toggle("dark-barra");
+    divFiltroServicios.classList.toggle("section_servicios-serv");
+    tarjetasTodoServicios.classList.toggle("tarjetas-servicios-nuevos");
+    formFilter.classList.toggle("filtrado-servicios-form");
+    inputFilter.classList.toggle("filter-input-oscuro");
+    btnFiltradoServ.classList.toggle("btn-filtro-serv");
+    serviciosModOscuro.classList.toggle("section_oscuro_servicios");
+    //formFilter.classList.toggle("filtrado-servicios-form-ocuro");
+    filterServModeDark.classList.toggle("filter-input-oscuro");
+    filtModeDarkInputs.classList.toggle("alineado-form");
+    textofilto.classList.toggle("alinerar-palabra-filtros");
+    btnFiltradoServ.classList.toggle("btn-sev-oscuro-filtrado");
   } else {
-    sessionStorage.removeItem("modo-oscuro");
+    barranav.classList.toggle("dark-barra");
+    tipografiaGrande.classList.toggle("dark-nav");
+  }*/
+
+  const resp = sessionStorage.getItem("modo-oscuro");
+  console.log(resp);
+  if (resp === "light-mode") {
+    sessionStorage.setItem("modo-oscuro", "dark-mode");
+    botonDarkmode.classList.toggle("color-oscuro");
+    body.classList.toggle("body-ocuro");
+    nav.classList.toggle("dark-nav");
+    barranav.classList.toggle("dark-barra");
+    nav2.classList.toggle("dark-nav");
+    nav3.classList.toggle("dark-nav");
+    nav4.classList.toggle("boton-modo-oscuro");
+    nav5.classList.toggle("dark-nav");
+    logo.classList.toggle("logo-oscuro");
+  } else if (resp === "dark-mode") {
+    sessionStorage.setItem("modo-oscuro", "light-mode");
+    botonDarkmode.classList.remove("color-oscuro");
+    body.classList.remove("body-ocuro");
+    nav.classList.remove("dark-nav");
+    barranav.classList.remove("dark-barra");
+    nav2.classList.remove("dark-nav");
+    nav3.classList.remove("dark-nav");
+    nav4.classList.remove("boton-modo-oscuro");
+    nav5.classList.remove("dark-nav");
+    logo.classList.remove("logo-oscuro");
   }
 }
 
 botonDarkmode.addEventListener("click", cambioDeTema);
+
+const resp = sessionStorage.getItem("modo-oscuro");
+console.log(resp);
+if (resp === "dark-mode") {
+  sessionStorage.setItem("modo-oscuro", "dark-mode");
+  botonDarkmode.classList.toggle("color-oscuro");
+  body.classList.toggle("body-ocuro");
+  nav.classList.toggle("dark-nav");
+  barranav.classList.toggle("dark-barra");
+  nav2.classList.toggle("dark-nav");
+  nav3.classList.toggle("dark-nav");
+  nav4.classList.toggle("boton-modo-oscuro");
+  nav5.classList.toggle("dark-nav");
+  logo.classList.toggle("logo-oscuro");
+}
