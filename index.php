@@ -6,6 +6,29 @@ session_start();
     header("location:login.php");
 
 }*/
+$ci = curl_init();
+
+$url = "http://localhost:4000/inicio";
+curl_setopt($ci, CURLOPT_URL, $url);
+
+curl_setopt($ci, CURLOPT_RETURNTRANSFER, true);
+
+$respuesta = curl_exec($ci);
+
+if (curl_errno($ci)) {
+    $mensaje_error = curl_error($ci);
+} else {
+
+    $datosUsuario = json_decode($respuesta, true);
+    //echo var_dump($datosUsuario);
+    curl_close($ci);
+}
+;
+
+
+
+
+
 
 
 
@@ -75,49 +98,25 @@ session_start();
 
     <section class="section_servicios">
         <div id="contenedor_tarjetas_inicio">
-            <div class="card" style="width: 18rem">
+            <?php foreach ($datosUsuario as $dato) {
+                //error_reporting(0);
+                $i;
+                $i++;
+
+                if ($i < 6) {
+
+                    ?>
+
+            <div class="card" id="<?php echo $dato['id']; ?>" style="width: 18rem">
                 <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
-                    <h5 class="card-title">Servicios</h5>
-                    <p class="card-text">jsadjkajskdjsajdjksa.</p>
-                    <a href="#" class="btn btn-primary" id="boton-tar-inicio">🛒</a>
+                    <h5 class="card-title"><?php echo $dato['nombre_servicio']; ?></h5>
+                    <p class="card-text"><?php echo $dato['descripcion']; ?></p>
+                    <a href="#" class="btn btn-primary" id="boton-tar-inicio" name="<?php echo $dato['id']; ?>">🛒</a>
                 </div>
-            </div>
-            <div class="card" style="width: 18rem">
-                <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">Servicios</h5>
-                    <p class="card-text">
-                        hola
-                        esaksdasdlañldklsadpklaskñldñlkasñldlaslñkdklsakldañlsdlasdñlalsdkakdlñlsa
-                    </p>
-                    <a href="#" class="btn btn-primary" id="boton-tar-inicio">🛒</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem">
-                <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">Servicios</h5>
-                    <p class="card-text">jsadjkajskdjsajdjksa.</p>
-                    <a href="#" class="btn btn-primary" id="boton-tar-inicio">🛒</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem">
-                <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">Servicios</h5>
-                    <p class="card-text">jsadjkajskdjsajdjksa.</p>
-                    <a href="#" class="btn btn-primary" id="boton-tar-inicio">🛒</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem">
-                <img src="./img/car-wash-1619823_1280.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">Servicios</h5>
-                    <p class="card-text">jsadjkajskdjsajdjksa.</p>
-                    <a href="#" class="btn btn-primary" id="boton-tar-inicio">🛒</a>
-                </div>
-            </div>
+            </div><?php }
+                ; ?>
+            <?php } ?>
         </div>
     </section>
 
