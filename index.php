@@ -112,7 +112,7 @@ if (curl_errno($ci)) {
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $dato['nombre_servicio']; ?></h5>
                     <p class="card-text"><?php echo $dato['descripcion']; ?></p>
-                    <a href="#" class="btn btn-primary" id="boton-tar-inicio" name="<?php echo $dato['id']; ?>">🛒</a>
+                    <a class="btn btn-primary" id="boton-tar-inicio" name="<?php echo $dato['id']; ?>">🛒</a>
                 </div>
             </div><?php }
                 ; ?>
@@ -208,6 +208,7 @@ if (curl_errno($ci)) {
     </footer>
 </body>
 <script src="./src/scrips/modo_oscuro.js"></script>
+<script src="./src/scrips/limpiar_localStorage.js"></script>
 <script>
 if (localStorage.getItem("articulo")) {
     localStorage.removeItem("articulo")
